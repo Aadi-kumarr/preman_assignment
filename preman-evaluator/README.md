@@ -297,7 +297,17 @@ Approximately 8 hours.
 
 ## Unfinished work and next engineering step
 
-- There is no single index page listing every run and replay.
+Remaining gaps, from Limitations above:
+
+- Audio timing is taken from the target's simulated fixture clock. Nothing is
+  measured on a client-side clock yet.
+- Missing, rejected and over-limit audio metrics are covered by unit tests and
+  the changed-threshold replay only. There is no live case for them.
+- Interrupts are scripted requests, not a real concurrent barge-in.
+- The turn deadline is approximate: a target that trickles bytes slowly is
+  flagged late but may not be cut off at exactly the deadline.
+- The evaluator has only been run against the scripted target, with no real
+  STT or TTS.
 
 Next step: put state and trace reads behind the adapter boundary, so that a
 real agent needs only one new class, then build a streaming audio adapter that

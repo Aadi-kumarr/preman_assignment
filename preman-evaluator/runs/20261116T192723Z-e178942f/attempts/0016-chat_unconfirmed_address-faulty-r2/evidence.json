@@ -1,0 +1,234 @@
+{
+  "evidence_schema": 1,
+  "attempt_id": "0016-chat_unconfirmed_address-faulty-r2",
+  "run_id": "20261116T192723Z-e178942f",
+  "scenario_id": "chat_unconfirmed_address",
+  "variant": "faulty",
+  "repeat": 2,
+  "started_at_utc": "2026-11-16T19:27:23.906Z",
+  "timing_note": "elapsed_ms values are measured by the runner with a monotonic clock; at_ms values inside target events are the target's simulated fixture clock.",
+  "session": {
+    "outcome": "ok",
+    "status": 201,
+    "elapsed_ms": 0.0,
+    "body": {
+      "session_id": "6a52ca75baa643b99c72f3b31cc1857a",
+      "run_id": "20261116T192723Z-e178942f",
+      "variant": "faulty",
+      "fixture": "address"
+    },
+    "request": {
+      "run_id": "20261116T192723Z-e178942f",
+      "variant": "faulty",
+      "fixture": "address"
+    }
+  },
+  "turns": [
+    {
+      "index": 1,
+      "type": "text",
+      "request": {
+        "text": "Change it to 14 Pine Street. Ask me before saving."
+      },
+      "deadline_ms": 3000,
+      "outcome": "ok",
+      "status": 200,
+      "elapsed_ms": 31.0,
+      "body": {
+        "session_id": "6a52ca75baa643b99c72f3b31cc1857a",
+        "run_id": "20261116T192723Z-e178942f",
+        "turn_id": "turn-1",
+        "response_id": "response-1",
+        "input_mode": "chat",
+        "generated_text": "I will save 40 Pine Street now.",
+        "audio_base64": {
+          "extracted_to": "turn-01.response.wav",
+          "sha256": "5042f454c4ffa9b1a236938e7b396ffc6bc7cc372d46959bb3496e2dfdec201d",
+          "base64_chars": 37504
+        },
+        "audio_format": "wav",
+        "audio_fixture": "audio/agent_wait.wav",
+        "audio_semantics": "prerecorded_fixture_not_tts_may_differ_from_generated_text",
+        "clock_domain": "fixture_clock",
+        "timing_source": "simulated",
+        "events": [
+          {
+            "event_id": "event-0001",
+            "kind": "input_received",
+            "at_ms": 0,
+            "session_id": "6a52ca75baa643b99c72f3b31cc1857a",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1",
+            "mode": "chat",
+            "text": "Change it to 14 Pine Street. Ask me before saving."
+          },
+          {
+            "event_id": "event-0002",
+            "kind": "model_request",
+            "at_ms": 220,
+            "session_id": "6a52ca75baa643b99c72f3b31cc1857a",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1"
+          },
+          {
+            "event_id": "event-0004",
+            "kind": "first_model_token",
+            "at_ms": 480,
+            "session_id": "6a52ca75baa643b99c72f3b31cc1857a",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1"
+          },
+          {
+            "event_id": "event-0005",
+            "kind": "generated_text",
+            "at_ms": 500,
+            "session_id": "6a52ca75baa643b99c72f3b31cc1857a",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1",
+            "text": "I will save 40 Pine Street now."
+          },
+          {
+            "event_id": "event-0003",
+            "kind": "tool_commit",
+            "at_ms": 1250,
+            "session_id": "6a52ca75baa643b99c72f3b31cc1857a",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1",
+            "action": "update_address",
+            "address": "40 Pine Street",
+            "confirmed": false
+          }
+        ]
+      },
+      "deadline_exceeded": false,
+      "audio_artifact": {
+        "path": "turn-01.response.wav",
+        "sha256": "5042f454c4ffa9b1a236938e7b396ffc6bc7cc372d46959bb3496e2dfdec201d",
+        "bytes": 28128,
+        "playable": true,
+        "duration_ms": 751.0,
+        "sample_rate_hz": 16000,
+        "channels": 1,
+        "sample_width_bits": 16,
+        "frames": 12016
+      }
+    }
+  ],
+  "state": {
+    "outcome": "ok",
+    "status": 200,
+    "elapsed_ms": 16.0,
+    "body": {
+      "session_id": "6a52ca75baa643b99c72f3b31cc1857a",
+      "run_id": "20261116T192723Z-e178942f",
+      "authoritative": true,
+      "bookings": [],
+      "address": "40 Pine Street",
+      "audit_log": [
+        {
+          "event_id": "event-0003",
+          "kind": "tool_commit",
+          "at_ms": 1250,
+          "session_id": "6a52ca75baa643b99c72f3b31cc1857a",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1",
+          "action": "update_address",
+          "address": "40 Pine Street",
+          "confirmed": false
+        }
+      ]
+    }
+  },
+  "trace": {
+    "outcome": "ok",
+    "status": 200,
+    "elapsed_ms": 0.0,
+    "body": {
+      "session_id": "6a52ca75baa643b99c72f3b31cc1857a",
+      "run_id": "20261116T192723Z-e178942f",
+      "clock_domain": "fixture_clock",
+      "timing_source": "simulated",
+      "events": [
+        {
+          "event_id": "event-0001",
+          "kind": "input_received",
+          "at_ms": 0,
+          "session_id": "6a52ca75baa643b99c72f3b31cc1857a",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1",
+          "mode": "chat",
+          "text": "Change it to 14 Pine Street. Ask me before saving."
+        },
+        {
+          "event_id": "event-0002",
+          "kind": "model_request",
+          "at_ms": 220,
+          "session_id": "6a52ca75baa643b99c72f3b31cc1857a",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1"
+        },
+        {
+          "event_id": "event-0004",
+          "kind": "first_model_token",
+          "at_ms": 480,
+          "session_id": "6a52ca75baa643b99c72f3b31cc1857a",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1"
+        },
+        {
+          "event_id": "event-0005",
+          "kind": "generated_text",
+          "at_ms": 500,
+          "session_id": "6a52ca75baa643b99c72f3b31cc1857a",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1",
+          "text": "I will save 40 Pine Street now."
+        },
+        {
+          "event_id": "event-0003",
+          "kind": "tool_commit",
+          "at_ms": 1250,
+          "session_id": "6a52ca75baa643b99c72f3b31cc1857a",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1",
+          "action": "update_address",
+          "address": "40 Pine Street",
+          "confirmed": false
+        }
+      ]
+    }
+  },
+  "cleanup": {
+    "outcome": "ok",
+    "status": 200,
+    "elapsed_ms": 0.0,
+    "body": {
+      "deleted": true,
+      "session_id": "6a52ca75baa643b99c72f3b31cc1857a"
+    }
+  },
+  "harness_errors": [],
+  "runner_duration_ms": 47.0
+}

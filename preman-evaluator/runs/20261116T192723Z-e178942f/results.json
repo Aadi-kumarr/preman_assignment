@@ -1,0 +1,4546 @@
+{
+  "results_schema": 1,
+  "run_id": "20261116T192723Z-e178942f",
+  "verdict_precedence": [
+    "FAIL",
+    "ERROR",
+    "INCONCLUSIVE",
+    "PASS"
+  ],
+  "attempts": [
+    {
+      "attempt_id": "0001-chat_booking-baseline-r1",
+      "scenario_id": "chat_booking",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "baseline",
+      "repeat": 1,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "PASS",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 1,
+            "bookings": [
+              {
+                "id": "B1",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T10:00:00Z"
+              }
+            ],
+            "trace_tool_results": {
+              "events": 1,
+              "distinct_booking_ids": 1,
+              "authoritative": false
+            }
+          },
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0001-chat_booking-baseline-r1/evidence.json",
+      "artifacts": [
+        "attempts/0001-chat_booking-baseline-r1/turn-01.response.wav",
+        "attempts/0001-chat_booking-baseline-r1/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 32.0
+    },
+    {
+      "attempt_id": "0002-chat_booking-baseline-r2",
+      "scenario_id": "chat_booking",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "baseline",
+      "repeat": 2,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 15.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "PASS",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 1,
+            "bookings": [
+              {
+                "id": "B1",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T10:00:00Z"
+              }
+            ],
+            "trace_tool_results": {
+              "events": 1,
+              "distinct_booking_ids": 1,
+              "authoritative": false
+            }
+          },
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0002-chat_booking-baseline-r2/evidence.json",
+      "artifacts": [
+        "attempts/0002-chat_booking-baseline-r2/turn-01.response.wav",
+        "attempts/0002-chat_booking-baseline-r2/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 78.0
+    },
+    {
+      "attempt_id": "0003-chat_booking-faulty-r1",
+      "scenario_id": "chat_booking",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "faulty",
+      "repeat": 1,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "booking_starts_at_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Booking B1 starts_at '2026-12-01T11:00:00Z', expected '2026-12-01T10:00:00Z'.",
+          "evidence": [
+            "attempts/0003-chat_booking-faulty-r1/evidence.json#/state/body/bookings/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 16.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 15.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "FAIL",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 1,
+            "bookings": [
+              {
+                "id": "B1",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T11:00:00Z"
+              }
+            ],
+            "trace_tool_results": {
+              "events": 1,
+              "distinct_booking_ids": 1,
+              "authoritative": false
+            }
+          },
+          "reasons": [
+            "booking_starts_at_mismatch"
+          ]
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0003-chat_booking-faulty-r1/evidence.json",
+      "artifacts": [
+        "attempts/0003-chat_booking-faulty-r1/turn-01.response.wav",
+        "attempts/0003-chat_booking-faulty-r1/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 47.0
+    },
+    {
+      "attempt_id": "0004-chat_booking-faulty-r2",
+      "scenario_id": "chat_booking",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "faulty",
+      "repeat": 2,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "booking_starts_at_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Booking B1 starts_at '2026-12-01T11:00:00Z', expected '2026-12-01T10:00:00Z'.",
+          "evidence": [
+            "attempts/0004-chat_booking-faulty-r2/evidence.json#/state/body/bookings/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "FAIL",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 1,
+            "bookings": [
+              {
+                "id": "B1",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T11:00:00Z"
+              }
+            ],
+            "trace_tool_results": {
+              "events": 1,
+              "distinct_booking_ids": 1,
+              "authoritative": false
+            }
+          },
+          "reasons": [
+            "booking_starts_at_mismatch"
+          ]
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0004-chat_booking-faulty-r2/evidence.json",
+      "artifacts": [
+        "attempts/0004-chat_booking-faulty-r2/turn-01.response.wav",
+        "attempts/0004-chat_booking-faulty-r2/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 15.0
+    },
+    {
+      "attempt_id": "0005-chat_false_success-baseline-r1",
+      "scenario_id": "chat_false_success",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "baseline",
+      "repeat": 1,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 16.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "PASS",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 1,
+            "bookings": [
+              {
+                "id": "B1",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T10:00:00Z"
+              }
+            ],
+            "trace_tool_results": {
+              "events": 1,
+              "distinct_booking_ids": 1,
+              "authoritative": false
+            }
+          },
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0005-chat_false_success-baseline-r1/evidence.json",
+      "artifacts": [
+        "attempts/0005-chat_false_success-baseline-r1/turn-01.response.wav",
+        "attempts/0005-chat_false_success-baseline-r1/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 31.0
+    },
+    {
+      "attempt_id": "0006-chat_false_success-baseline-r2",
+      "scenario_id": "chat_false_success",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "baseline",
+      "repeat": 2,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 16.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "PASS",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 1,
+            "bookings": [
+              {
+                "id": "B1",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T10:00:00Z"
+              }
+            ],
+            "trace_tool_results": {
+              "events": 1,
+              "distinct_booking_ids": 1,
+              "authoritative": false
+            }
+          },
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0006-chat_false_success-baseline-r2/evidence.json",
+      "artifacts": [
+        "attempts/0006-chat_false_success-baseline-r2/turn-01.response.wav",
+        "attempts/0006-chat_false_success-baseline-r2/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 16.0
+    },
+    {
+      "attempt_id": "0007-chat_false_success-faulty-r1",
+      "scenario_id": "chat_false_success",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "faulty",
+      "repeat": 1,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "booking_count_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Expected 1 persisted booking(s), authoritative state has 0 (fewer than expected).",
+          "evidence": [
+            "attempts/0007-chat_false_success-faulty-r1/evidence.json#/state/body/bookings"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "FAIL",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 0,
+            "bookings": [],
+            "trace_tool_results": {
+              "events": 0,
+              "distinct_booking_ids": 0,
+              "authoritative": false
+            }
+          },
+          "reasons": [
+            "booking_count_mismatch"
+          ]
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0007-chat_false_success-faulty-r1/evidence.json",
+      "artifacts": [
+        "attempts/0007-chat_false_success-faulty-r1/turn-01.response.wav",
+        "attempts/0007-chat_false_success-faulty-r1/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 47.0
+    },
+    {
+      "attempt_id": "0008-chat_false_success-faulty-r2",
+      "scenario_id": "chat_false_success",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "faulty",
+      "repeat": 2,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "booking_count_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Expected 1 persisted booking(s), authoritative state has 0 (fewer than expected).",
+          "evidence": [
+            "attempts/0008-chat_false_success-faulty-r2/evidence.json#/state/body/bookings"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 16.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "FAIL",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 0,
+            "bookings": [],
+            "trace_tool_results": {
+              "events": 0,
+              "distinct_booking_ids": 0,
+              "authoritative": false
+            }
+          },
+          "reasons": [
+            "booking_count_mismatch"
+          ]
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0008-chat_false_success-faulty-r2/evidence.json",
+      "artifacts": [
+        "attempts/0008-chat_false_success-faulty-r2/turn-01.response.wav",
+        "attempts/0008-chat_false_success-faulty-r2/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 16.0
+    },
+    {
+      "attempt_id": "0009-chat_retry-baseline-r1",
+      "scenario_id": "chat_retry",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "baseline",
+      "repeat": 1,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "PASS",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 1,
+            "bookings": [
+              {
+                "id": "B1",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T10:00:00Z"
+              }
+            ],
+            "trace_tool_results": {
+              "events": 2,
+              "distinct_booking_ids": 1,
+              "authoritative": false
+            }
+          },
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0009-chat_retry-baseline-r1/evidence.json",
+      "artifacts": [
+        "attempts/0009-chat_retry-baseline-r1/turn-01.response.wav",
+        "attempts/0009-chat_retry-baseline-r1/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 16.0
+    },
+    {
+      "attempt_id": "0010-chat_retry-baseline-r2",
+      "scenario_id": "chat_retry",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "baseline",
+      "repeat": 2,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 16.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "PASS",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 1,
+            "bookings": [
+              {
+                "id": "B1",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T10:00:00Z"
+              }
+            ],
+            "trace_tool_results": {
+              "events": 2,
+              "distinct_booking_ids": 1,
+              "authoritative": false
+            }
+          },
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0010-chat_retry-baseline-r2/evidence.json",
+      "artifacts": [
+        "attempts/0010-chat_retry-baseline-r2/turn-01.response.wav",
+        "attempts/0010-chat_retry-baseline-r2/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 16.0
+    },
+    {
+      "attempt_id": "0011-chat_retry-faulty-r1",
+      "scenario_id": "chat_retry",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "faulty",
+      "repeat": 1,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "booking_count_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Expected 1 persisted booking(s), authoritative state has 2 (more than expected).",
+          "evidence": [
+            "attempts/0011-chat_retry-faulty-r1/evidence.json#/state/body/bookings"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 16.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "FAIL",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 2,
+            "bookings": [
+              {
+                "id": "B1",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T10:00:00Z"
+              },
+              {
+                "id": "B2",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T10:00:00Z"
+              }
+            ],
+            "trace_tool_results": {
+              "events": 2,
+              "distinct_booking_ids": 2,
+              "authoritative": false
+            }
+          },
+          "reasons": [
+            "booking_count_mismatch"
+          ]
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0011-chat_retry-faulty-r1/evidence.json",
+      "artifacts": [
+        "attempts/0011-chat_retry-faulty-r1/turn-01.response.wav",
+        "attempts/0011-chat_retry-faulty-r1/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 31.0
+    },
+    {
+      "attempt_id": "0012-chat_retry-faulty-r2",
+      "scenario_id": "chat_retry",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "faulty",
+      "repeat": 2,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "booking_count_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Expected 1 persisted booking(s), authoritative state has 2 (more than expected).",
+          "evidence": [
+            "attempts/0012-chat_retry-faulty-r2/evidence.json#/state/body/bookings"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 15.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 16.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "FAIL",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 2,
+            "bookings": [
+              {
+                "id": "B1",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T10:00:00Z"
+              },
+              {
+                "id": "B2",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T10:00:00Z"
+              }
+            ],
+            "trace_tool_results": {
+              "events": 2,
+              "distinct_booking_ids": 2,
+              "authoritative": false
+            }
+          },
+          "reasons": [
+            "booking_count_mismatch"
+          ]
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0012-chat_retry-faulty-r2/evidence.json",
+      "artifacts": [
+        "attempts/0012-chat_retry-faulty-r2/turn-01.response.wav",
+        "attempts/0012-chat_retry-faulty-r2/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 31.0
+    },
+    {
+      "attempt_id": "0013-chat_unconfirmed_address-baseline-r1",
+      "scenario_id": "chat_unconfirmed_address",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "baseline",
+      "repeat": 1,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "PASS",
+          "expected": "10 Oak Street",
+          "observed": "10 Oak Street",
+          "reasons": []
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "PASS",
+          "expected": true,
+          "observed": {
+            "writes": [],
+            "user_confirmation_turns": []
+          },
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "10 Oak Street",
+        "no_write_without_confirmation": true
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0013-chat_unconfirmed_address-baseline-r1/evidence.json",
+      "artifacts": [
+        "attempts/0013-chat_unconfirmed_address-baseline-r1/turn-01.response.wav"
+      ],
+      "runner_duration_ms": 16.0
+    },
+    {
+      "attempt_id": "0014-chat_unconfirmed_address-baseline-r2",
+      "scenario_id": "chat_unconfirmed_address",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "baseline",
+      "repeat": 2,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 16.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "PASS",
+          "expected": "10 Oak Street",
+          "observed": "10 Oak Street",
+          "reasons": []
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "PASS",
+          "expected": true,
+          "observed": {
+            "writes": [],
+            "user_confirmation_turns": []
+          },
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "10 Oak Street",
+        "no_write_without_confirmation": true
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0014-chat_unconfirmed_address-baseline-r2/evidence.json",
+      "artifacts": [
+        "attempts/0014-chat_unconfirmed_address-baseline-r2/turn-01.response.wav"
+      ],
+      "runner_duration_ms": 16.0
+    },
+    {
+      "attempt_id": "0015-chat_unconfirmed_address-faulty-r1",
+      "scenario_id": "chat_unconfirmed_address",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "faulty",
+      "repeat": 1,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "address_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Final address is '40 Pine Street', expected '10 Oak Street'.",
+          "evidence": [
+            "attempts/0015-chat_unconfirmed_address-faulty-r1/evidence.json#/state/body/address"
+          ]
+        },
+        {
+          "code": "unconfirmed_write",
+          "verdict": "FAIL",
+          "category": "policy",
+          "message": "Write update_address (event-0003, turn-1) was committed with confirmed=False in the audit log.",
+          "evidence": [
+            "attempts/0015-chat_unconfirmed_address-faulty-r1/evidence.json#/state/body/audit_log/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "FAIL",
+          "expected": "10 Oak Street",
+          "observed": "40 Pine Street",
+          "reasons": [
+            "address_mismatch"
+          ]
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "FAIL",
+          "expected": true,
+          "observed": {
+            "writes": [
+              {
+                "action": "update_address",
+                "event_id": "event-0003",
+                "turn_id": "turn-1",
+                "confirmed": false,
+                "user_confirmation_turns_before": []
+              }
+            ],
+            "user_confirmation_turns": []
+          },
+          "reasons": [
+            "unconfirmed_write"
+          ]
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "10 Oak Street",
+        "no_write_without_confirmation": true
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0015-chat_unconfirmed_address-faulty-r1/evidence.json",
+      "artifacts": [
+        "attempts/0015-chat_unconfirmed_address-faulty-r1/turn-01.response.wav"
+      ],
+      "runner_duration_ms": 31.0
+    },
+    {
+      "attempt_id": "0016-chat_unconfirmed_address-faulty-r2",
+      "scenario_id": "chat_unconfirmed_address",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "faulty",
+      "repeat": 2,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "address_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Final address is '40 Pine Street', expected '10 Oak Street'.",
+          "evidence": [
+            "attempts/0016-chat_unconfirmed_address-faulty-r2/evidence.json#/state/body/address"
+          ]
+        },
+        {
+          "code": "unconfirmed_write",
+          "verdict": "FAIL",
+          "category": "policy",
+          "message": "Write update_address (event-0003, turn-1) was committed with confirmed=False in the audit log.",
+          "evidence": [
+            "attempts/0016-chat_unconfirmed_address-faulty-r2/evidence.json#/state/body/audit_log/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 31.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "FAIL",
+          "expected": "10 Oak Street",
+          "observed": "40 Pine Street",
+          "reasons": [
+            "address_mismatch"
+          ]
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "FAIL",
+          "expected": true,
+          "observed": {
+            "writes": [
+              {
+                "action": "update_address",
+                "event_id": "event-0003",
+                "turn_id": "turn-1",
+                "confirmed": false,
+                "user_confirmation_turns_before": []
+              }
+            ],
+            "user_confirmation_turns": []
+          },
+          "reasons": [
+            "unconfirmed_write"
+          ]
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "10 Oak Street",
+        "no_write_without_confirmation": true
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0016-chat_unconfirmed_address-faulty-r2/evidence.json",
+      "artifacts": [
+        "attempts/0016-chat_unconfirmed_address-faulty-r2/turn-01.response.wav"
+      ],
+      "runner_duration_ms": 47.0
+    },
+    {
+      "attempt_id": "0017-chat_state_error-baseline-r1",
+      "scenario_id": "chat_state_error",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "baseline",
+      "repeat": 1,
+      "verdict": "ERROR",
+      "reasons": [
+        {
+          "code": "state_read_failed",
+          "verdict": "ERROR",
+          "category": "harness",
+          "message": "Authoritative state read failed (HTTP 503, STATE_UNAVAILABLE); the trace is not authoritative and is not used instead.",
+          "evidence": [
+            "attempts/0017-chat_state_error-baseline-r1/evidence.json#/state"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 15.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "ERROR",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": null,
+          "reasons": [
+            "state_read_failed"
+          ]
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0017-chat_state_error-baseline-r1/evidence.json",
+      "artifacts": [
+        "attempts/0017-chat_state_error-baseline-r1/turn-01.response.wav",
+        "attempts/0017-chat_state_error-baseline-r1/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 31.0
+    },
+    {
+      "attempt_id": "0018-chat_state_error-baseline-r2",
+      "scenario_id": "chat_state_error",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "baseline",
+      "repeat": 2,
+      "verdict": "ERROR",
+      "reasons": [
+        {
+          "code": "state_read_failed",
+          "verdict": "ERROR",
+          "category": "harness",
+          "message": "Authoritative state read failed (HTTP 503, STATE_UNAVAILABLE); the trace is not authoritative and is not used instead.",
+          "evidence": [
+            "attempts/0018-chat_state_error-baseline-r2/evidence.json#/state"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "ERROR",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": null,
+          "reasons": [
+            "state_read_failed"
+          ]
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0018-chat_state_error-baseline-r2/evidence.json",
+      "artifacts": [
+        "attempts/0018-chat_state_error-baseline-r2/turn-01.response.wav",
+        "attempts/0018-chat_state_error-baseline-r2/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 31.0
+    },
+    {
+      "attempt_id": "0019-chat_state_error-faulty-r1",
+      "scenario_id": "chat_state_error",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "faulty",
+      "repeat": 1,
+      "verdict": "ERROR",
+      "reasons": [
+        {
+          "code": "state_read_failed",
+          "verdict": "ERROR",
+          "category": "harness",
+          "message": "Authoritative state read failed (HTTP 503, STATE_UNAVAILABLE); the trace is not authoritative and is not used instead.",
+          "evidence": [
+            "attempts/0019-chat_state_error-faulty-r1/evidence.json#/state"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 15.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "ERROR",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": null,
+          "reasons": [
+            "state_read_failed"
+          ]
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0019-chat_state_error-faulty-r1/evidence.json",
+      "artifacts": [
+        "attempts/0019-chat_state_error-faulty-r1/turn-01.response.wav",
+        "attempts/0019-chat_state_error-faulty-r1/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 47.0
+    },
+    {
+      "attempt_id": "0020-chat_state_error-faulty-r2",
+      "scenario_id": "chat_state_error",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "faulty",
+      "repeat": 2,
+      "verdict": "ERROR",
+      "reasons": [
+        {
+          "code": "state_read_failed",
+          "verdict": "ERROR",
+          "category": "harness",
+          "message": "Authoritative state read failed (HTTP 503, STATE_UNAVAILABLE); the trace is not authoritative and is not used instead.",
+          "evidence": [
+            "attempts/0020-chat_state_error-faulty-r2/evidence.json#/state"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 16.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "ERROR",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": null,
+          "reasons": [
+            "state_read_failed"
+          ]
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        }
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0020-chat_state_error-faulty-r2/evidence.json",
+      "artifacts": [
+        "attempts/0020-chat_state_error-faulty-r2/turn-01.response.wav",
+        "attempts/0020-chat_state_error-faulty-r2/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 47.0
+    },
+    {
+      "attempt_id": "0021-chat_timeout-baseline-r1",
+      "scenario_id": "chat_timeout",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "baseline",
+      "repeat": 1,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "timeout",
+          "verdict": "FAIL",
+          "category": "deadline",
+          "message": "Turn 1 exceeded its 400 ms deadline (no response after 422.0 ms).",
+          "evidence": [
+            "attempts/0021-chat_timeout-baseline-r1/evidence.json#/turns/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "FAIL",
+          "expected": {
+            "turn_timeout_ms": 400
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "timeout",
+              "elapsed_ms": 422.0
+            }
+          ],
+          "reasons": [
+            "timeout"
+          ]
+        },
+        {
+          "check": "booking",
+          "verdict": "PASS",
+          "expected": {
+            "count": 0
+          },
+          "observed": {
+            "count": 0,
+            "bookings": [],
+            "trace_tool_results": {
+              "events": 0,
+              "distinct_booking_ids": 0,
+              "authoritative": false
+            }
+          },
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 0
+        }
+      },
+      "turn_timeout_ms": 400,
+      "evidence": "attempts/0021-chat_timeout-baseline-r1/evidence.json",
+      "artifacts": [],
+      "runner_duration_ms": 438.0
+    },
+    {
+      "attempt_id": "0022-chat_timeout-baseline-r2",
+      "scenario_id": "chat_timeout",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "baseline",
+      "repeat": 2,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "timeout",
+          "verdict": "FAIL",
+          "category": "deadline",
+          "message": "Turn 1 exceeded its 400 ms deadline (no response after 406.0 ms).",
+          "evidence": [
+            "attempts/0022-chat_timeout-baseline-r2/evidence.json#/turns/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "FAIL",
+          "expected": {
+            "turn_timeout_ms": 400
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "timeout",
+              "elapsed_ms": 406.0
+            }
+          ],
+          "reasons": [
+            "timeout"
+          ]
+        },
+        {
+          "check": "booking",
+          "verdict": "PASS",
+          "expected": {
+            "count": 0
+          },
+          "observed": {
+            "count": 0,
+            "bookings": [],
+            "trace_tool_results": {
+              "events": 0,
+              "distinct_booking_ids": 0,
+              "authoritative": false
+            }
+          },
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 0
+        }
+      },
+      "turn_timeout_ms": 400,
+      "evidence": "attempts/0022-chat_timeout-baseline-r2/evidence.json",
+      "artifacts": [],
+      "runner_duration_ms": 422.0
+    },
+    {
+      "attempt_id": "0023-chat_timeout-faulty-r1",
+      "scenario_id": "chat_timeout",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "faulty",
+      "repeat": 1,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "timeout",
+          "verdict": "FAIL",
+          "category": "deadline",
+          "message": "Turn 1 exceeded its 400 ms deadline (no response after 422.0 ms).",
+          "evidence": [
+            "attempts/0023-chat_timeout-faulty-r1/evidence.json#/turns/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "FAIL",
+          "expected": {
+            "turn_timeout_ms": 400
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "timeout",
+              "elapsed_ms": 422.0
+            }
+          ],
+          "reasons": [
+            "timeout"
+          ]
+        },
+        {
+          "check": "booking",
+          "verdict": "PASS",
+          "expected": {
+            "count": 0
+          },
+          "observed": {
+            "count": 0,
+            "bookings": [],
+            "trace_tool_results": {
+              "events": 0,
+              "distinct_booking_ids": 0,
+              "authoritative": false
+            }
+          },
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 0
+        }
+      },
+      "turn_timeout_ms": 400,
+      "evidence": "attempts/0023-chat_timeout-faulty-r1/evidence.json",
+      "artifacts": [],
+      "runner_duration_ms": 422.0
+    },
+    {
+      "attempt_id": "0024-chat_timeout-faulty-r2",
+      "scenario_id": "chat_timeout",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "chat",
+      "variant": "faulty",
+      "repeat": 2,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "timeout",
+          "verdict": "FAIL",
+          "category": "deadline",
+          "message": "Turn 1 exceeded its 400 ms deadline (no response after 422.0 ms).",
+          "evidence": [
+            "attempts/0024-chat_timeout-faulty-r2/evidence.json#/turns/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "FAIL",
+          "expected": {
+            "turn_timeout_ms": 400
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "timeout",
+              "elapsed_ms": 422.0
+            }
+          ],
+          "reasons": [
+            "timeout"
+          ]
+        },
+        {
+          "check": "booking",
+          "verdict": "PASS",
+          "expected": {
+            "count": 0
+          },
+          "observed": {
+            "count": 0,
+            "bookings": [],
+            "trace_tool_results": {
+              "events": 0,
+              "distinct_booking_ids": 0,
+              "authoritative": false
+            }
+          },
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 0
+        }
+      },
+      "turn_timeout_ms": 400,
+      "evidence": "attempts/0024-chat_timeout-faulty-r2/evidence.json",
+      "artifacts": [],
+      "runner_duration_ms": 469.0
+    },
+    {
+      "attempt_id": "0025-audio_booking-baseline-r1",
+      "scenario_id": "audio_booking",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "audio",
+      "variant": "baseline",
+      "repeat": 1,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 15.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "response_audio",
+          "verdict": "PASS",
+          "expected": "playable WAV for every answered audio turn",
+          "observed": [
+            {
+              "turn": 1,
+              "playable": true,
+              "duration_ms": 2192.4,
+              "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee"
+            },
+            {
+              "turn": 2,
+              "playable": true,
+              "duration_ms": 1524.9,
+              "sha256": "9f1fe7245c07c71e0b8a173be0e8b2a668a2e8bd2a97cea7df7736013e2488a4"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "PASS",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 1,
+            "bookings": [
+              {
+                "id": "B1",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T10:00:00Z"
+              }
+            ],
+            "trace_tool_results": {
+              "events": 1,
+              "distinct_booking_ids": 1,
+              "authoritative": false
+            }
+          },
+          "reasons": []
+        },
+        {
+          "check": "max_first_audio_playback_ms",
+          "verdict": "PASS",
+          "expected": 1000,
+          "observed": [
+            {
+              "turn_index": 1,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            },
+            {
+              "turn_index": 2,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 1,
+            "scope": {
+              "session_id": "622aadfa750a42239711a364f31c2652",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0002",
+              "at_ms": 0
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0009",
+              "at_ms": 640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          },
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 2,
+            "scope": {
+              "session_id": "622aadfa750a42239711a364f31c2652",
+              "turn_id": "turn-2",
+              "response_id": "response-2"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0011",
+              "at_ms": 2000
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0020",
+              "at_ms": 2640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          }
+        ],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        },
+        "max_first_audio_playback_ms": 1000
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0025-audio_booking-baseline-r1/evidence.json",
+      "artifacts": [
+        "attempts/0025-audio_booking-baseline-r1/turn-01.response.wav",
+        "attempts/0025-audio_booking-baseline-r1/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 31.0
+    },
+    {
+      "attempt_id": "0026-audio_booking-baseline-r2",
+      "scenario_id": "audio_booking",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "audio",
+      "variant": "baseline",
+      "repeat": 2,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "response_audio",
+          "verdict": "PASS",
+          "expected": "playable WAV for every answered audio turn",
+          "observed": [
+            {
+              "turn": 1,
+              "playable": true,
+              "duration_ms": 2192.4,
+              "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee"
+            },
+            {
+              "turn": 2,
+              "playable": true,
+              "duration_ms": 1524.9,
+              "sha256": "9f1fe7245c07c71e0b8a173be0e8b2a668a2e8bd2a97cea7df7736013e2488a4"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "PASS",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 1,
+            "bookings": [
+              {
+                "id": "B1",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T10:00:00Z"
+              }
+            ],
+            "trace_tool_results": {
+              "events": 1,
+              "distinct_booking_ids": 1,
+              "authoritative": false
+            }
+          },
+          "reasons": []
+        },
+        {
+          "check": "max_first_audio_playback_ms",
+          "verdict": "PASS",
+          "expected": 1000,
+          "observed": [
+            {
+              "turn_index": 1,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            },
+            {
+              "turn_index": 2,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 1,
+            "scope": {
+              "session_id": "1df94cf3b4394ccfaa0191898be4dcd1",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0002",
+              "at_ms": 0
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0009",
+              "at_ms": 640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          },
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 2,
+            "scope": {
+              "session_id": "1df94cf3b4394ccfaa0191898be4dcd1",
+              "turn_id": "turn-2",
+              "response_id": "response-2"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0011",
+              "at_ms": 2000
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0020",
+              "at_ms": 2640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          }
+        ],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        },
+        "max_first_audio_playback_ms": 1000
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0026-audio_booking-baseline-r2/evidence.json",
+      "artifacts": [
+        "attempts/0026-audio_booking-baseline-r2/turn-01.response.wav",
+        "attempts/0026-audio_booking-baseline-r2/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 31.0
+    },
+    {
+      "attempt_id": "0027-audio_booking-faulty-r1",
+      "scenario_id": "audio_booking",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "audio",
+      "variant": "faulty",
+      "repeat": 1,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "booking_starts_at_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Booking B1 starts_at '2026-12-01T11:00:00Z', expected '2026-12-01T10:00:00Z'.",
+          "evidence": [
+            "attempts/0027-audio_booking-faulty-r1/evidence.json#/state/body/bookings/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 16.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "response_audio",
+          "verdict": "PASS",
+          "expected": "playable WAV for every answered audio turn",
+          "observed": [
+            {
+              "turn": 1,
+              "playable": true,
+              "duration_ms": 2192.4,
+              "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee"
+            },
+            {
+              "turn": 2,
+              "playable": true,
+              "duration_ms": 1524.9,
+              "sha256": "9f1fe7245c07c71e0b8a173be0e8b2a668a2e8bd2a97cea7df7736013e2488a4"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "FAIL",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 1,
+            "bookings": [
+              {
+                "id": "B1",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T11:00:00Z"
+              }
+            ],
+            "trace_tool_results": {
+              "events": 1,
+              "distinct_booking_ids": 1,
+              "authoritative": false
+            }
+          },
+          "reasons": [
+            "booking_starts_at_mismatch"
+          ]
+        },
+        {
+          "check": "max_first_audio_playback_ms",
+          "verdict": "PASS",
+          "expected": 1000,
+          "observed": [
+            {
+              "turn_index": 1,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            },
+            {
+              "turn_index": 2,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 1,
+            "scope": {
+              "session_id": "d252c0c7c714498ea17e8592b348e49d",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0002",
+              "at_ms": 0
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0009",
+              "at_ms": 640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          },
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 2,
+            "scope": {
+              "session_id": "d252c0c7c714498ea17e8592b348e49d",
+              "turn_id": "turn-2",
+              "response_id": "response-2"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0011",
+              "at_ms": 2000
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0020",
+              "at_ms": 2640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          }
+        ],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        },
+        "max_first_audio_playback_ms": 1000
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0027-audio_booking-faulty-r1/evidence.json",
+      "artifacts": [
+        "attempts/0027-audio_booking-faulty-r1/turn-01.response.wav",
+        "attempts/0027-audio_booking-faulty-r1/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 62.0
+    },
+    {
+      "attempt_id": "0028-audio_booking-faulty-r2",
+      "scenario_id": "audio_booking",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "audio",
+      "variant": "faulty",
+      "repeat": 2,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "booking_starts_at_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Booking B1 starts_at '2026-12-01T11:00:00Z', expected '2026-12-01T10:00:00Z'.",
+          "evidence": [
+            "attempts/0028-audio_booking-faulty-r2/evidence.json#/state/body/bookings/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 31.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "response_audio",
+          "verdict": "PASS",
+          "expected": "playable WAV for every answered audio turn",
+          "observed": [
+            {
+              "turn": 1,
+              "playable": true,
+              "duration_ms": 2192.4,
+              "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee"
+            },
+            {
+              "turn": 2,
+              "playable": true,
+              "duration_ms": 1524.9,
+              "sha256": "9f1fe7245c07c71e0b8a173be0e8b2a668a2e8bd2a97cea7df7736013e2488a4"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "booking",
+          "verdict": "FAIL",
+          "expected": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "observed": {
+            "count": 1,
+            "bookings": [
+              {
+                "id": "B1",
+                "customer_id": "C1",
+                "starts_at": "2026-12-01T11:00:00Z"
+              }
+            ],
+            "trace_tool_results": {
+              "events": 1,
+              "distinct_booking_ids": 1,
+              "authoritative": false
+            }
+          },
+          "reasons": [
+            "booking_starts_at_mismatch"
+          ]
+        },
+        {
+          "check": "max_first_audio_playback_ms",
+          "verdict": "PASS",
+          "expected": 1000,
+          "observed": [
+            {
+              "turn_index": 1,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            },
+            {
+              "turn_index": 2,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 1,
+            "scope": {
+              "session_id": "d4e2a0c53d944b378d868663a4e6cd4e",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0002",
+              "at_ms": 0
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0009",
+              "at_ms": 640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          },
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 2,
+            "scope": {
+              "session_id": "d4e2a0c53d944b378d868663a4e6cd4e",
+              "turn_id": "turn-2",
+              "response_id": "response-2"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0011",
+              "at_ms": 2000
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0020",
+              "at_ms": 2640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          }
+        ],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "booking": {
+          "count": 1,
+          "customer_id": "C1",
+          "starts_at": "2026-12-01T10:00:00Z"
+        },
+        "max_first_audio_playback_ms": 1000
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0028-audio_booking-faulty-r2/evidence.json",
+      "artifacts": [
+        "attempts/0028-audio_booking-faulty-r2/turn-01.response.wav",
+        "attempts/0028-audio_booking-faulty-r2/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 62.0
+    },
+    {
+      "attempt_id": "0029-audio_interruption-baseline-r1",
+      "scenario_id": "audio_interruption",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "audio",
+      "variant": "baseline",
+      "repeat": 1,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 32.0
+            },
+            {
+              "turn": 3,
+              "outcome": "ok",
+              "elapsed_ms": 15.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "response_audio",
+          "verdict": "PASS",
+          "expected": "playable WAV for every answered audio turn",
+          "observed": [
+            {
+              "turn": 1,
+              "playable": true,
+              "duration_ms": 2192.4,
+              "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee"
+            },
+            {
+              "turn": 3,
+              "playable": true,
+              "duration_ms": 1702.6,
+              "sha256": "c8f12800a79eb29c64e01180c2f3f05289709780bf05a18f85912d04215c3657"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "PASS",
+          "expected": "10 Oak Street",
+          "observed": "10 Oak Street",
+          "reasons": []
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "PASS",
+          "expected": true,
+          "observed": {
+            "writes": [],
+            "user_confirmation_turns": []
+          },
+          "reasons": []
+        },
+        {
+          "check": "max_first_audio_playback_ms",
+          "verdict": "PASS",
+          "expected": 1000,
+          "observed": [
+            {
+              "turn_index": 1,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            },
+            {
+              "turn_index": 3,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "max_interruption_stop_ms",
+          "verdict": "PASS",
+          "expected": 400,
+          "observed": [
+            {
+              "turn_index": 2,
+              "status": "ok",
+              "value_ms": 320,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 1,
+            "scope": {
+              "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0002",
+              "at_ms": 0
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0009",
+              "at_ms": 640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          },
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 3,
+            "scope": {
+              "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+              "turn_id": "turn-2",
+              "response_id": "response-2"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0014",
+              "at_ms": 2000
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0021",
+              "at_ms": 2640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          }
+        ],
+        "interruption_stop_ms": [
+          {
+            "metric": "interruption_stop_ms",
+            "turn_index": 2,
+            "scope": {
+              "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 320,
+            "from": {
+              "kind": "user_speech_start",
+              "event_id": "event-0010",
+              "at_ms": 900
+            },
+            "to": {
+              "kind": "playback_stopped",
+              "event_id": "event-0012",
+              "at_ms": 1220
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": [],
+            "interrupts_turn_index": 1
+          }
+        ]
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "10 Oak Street",
+        "no_write_without_confirmation": true,
+        "max_first_audio_playback_ms": 1000,
+        "max_interruption_stop_ms": 400
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0029-audio_interruption-baseline-r1/evidence.json",
+      "artifacts": [
+        "attempts/0029-audio_interruption-baseline-r1/turn-01.response.wav",
+        "attempts/0029-audio_interruption-baseline-r1/turn-03.response.wav"
+      ],
+      "runner_duration_ms": 47.0
+    },
+    {
+      "attempt_id": "0030-audio_interruption-baseline-r2",
+      "scenario_id": "audio_interruption",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "audio",
+      "variant": "baseline",
+      "repeat": 2,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 16.0
+            },
+            {
+              "turn": 3,
+              "outcome": "ok",
+              "elapsed_ms": 16.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "response_audio",
+          "verdict": "PASS",
+          "expected": "playable WAV for every answered audio turn",
+          "observed": [
+            {
+              "turn": 1,
+              "playable": true,
+              "duration_ms": 2192.4,
+              "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee"
+            },
+            {
+              "turn": 3,
+              "playable": true,
+              "duration_ms": 1702.6,
+              "sha256": "c8f12800a79eb29c64e01180c2f3f05289709780bf05a18f85912d04215c3657"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "PASS",
+          "expected": "10 Oak Street",
+          "observed": "10 Oak Street",
+          "reasons": []
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "PASS",
+          "expected": true,
+          "observed": {
+            "writes": [],
+            "user_confirmation_turns": []
+          },
+          "reasons": []
+        },
+        {
+          "check": "max_first_audio_playback_ms",
+          "verdict": "PASS",
+          "expected": 1000,
+          "observed": [
+            {
+              "turn_index": 1,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            },
+            {
+              "turn_index": 3,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "max_interruption_stop_ms",
+          "verdict": "PASS",
+          "expected": 400,
+          "observed": [
+            {
+              "turn_index": 2,
+              "status": "ok",
+              "value_ms": 320,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 1,
+            "scope": {
+              "session_id": "fbc619a4bb264913bfd20aa36e6477f4",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0002",
+              "at_ms": 0
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0009",
+              "at_ms": 640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          },
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 3,
+            "scope": {
+              "session_id": "fbc619a4bb264913bfd20aa36e6477f4",
+              "turn_id": "turn-2",
+              "response_id": "response-2"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0014",
+              "at_ms": 2000
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0021",
+              "at_ms": 2640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          }
+        ],
+        "interruption_stop_ms": [
+          {
+            "metric": "interruption_stop_ms",
+            "turn_index": 2,
+            "scope": {
+              "session_id": "fbc619a4bb264913bfd20aa36e6477f4",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 320,
+            "from": {
+              "kind": "user_speech_start",
+              "event_id": "event-0010",
+              "at_ms": 900
+            },
+            "to": {
+              "kind": "playback_stopped",
+              "event_id": "event-0012",
+              "at_ms": 1220
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": [],
+            "interrupts_turn_index": 1
+          }
+        ]
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "10 Oak Street",
+        "no_write_without_confirmation": true,
+        "max_first_audio_playback_ms": 1000,
+        "max_interruption_stop_ms": 400
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0030-audio_interruption-baseline-r2/evidence.json",
+      "artifacts": [
+        "attempts/0030-audio_interruption-baseline-r2/turn-01.response.wav",
+        "attempts/0030-audio_interruption-baseline-r2/turn-03.response.wav"
+      ],
+      "runner_duration_ms": 47.0
+    },
+    {
+      "attempt_id": "0031-audio_interruption-faulty-r1",
+      "scenario_id": "audio_interruption",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "audio",
+      "variant": "faulty",
+      "repeat": 1,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "address_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Final address is '40 Pine Street', expected '10 Oak Street'.",
+          "evidence": [
+            "attempts/0031-audio_interruption-faulty-r1/evidence.json#/state/body/address"
+          ]
+        },
+        {
+          "code": "unconfirmed_write",
+          "verdict": "FAIL",
+          "category": "policy",
+          "message": "Write update_address (event-0005, turn-1) was committed with confirmed=False in the audit log.",
+          "evidence": [
+            "attempts/0031-audio_interruption-faulty-r1/evidence.json#/state/body/audit_log/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 3,
+              "outcome": "ok",
+              "elapsed_ms": 16.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "response_audio",
+          "verdict": "PASS",
+          "expected": "playable WAV for every answered audio turn",
+          "observed": [
+            {
+              "turn": 1,
+              "playable": true,
+              "duration_ms": 751.0,
+              "sha256": "5042f454c4ffa9b1a236938e7b396ffc6bc7cc372d46959bb3496e2dfdec201d"
+            },
+            {
+              "turn": 3,
+              "playable": true,
+              "duration_ms": 1702.6,
+              "sha256": "c8f12800a79eb29c64e01180c2f3f05289709780bf05a18f85912d04215c3657"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "FAIL",
+          "expected": "10 Oak Street",
+          "observed": "40 Pine Street",
+          "reasons": [
+            "address_mismatch"
+          ]
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "FAIL",
+          "expected": true,
+          "observed": {
+            "writes": [
+              {
+                "action": "update_address",
+                "event_id": "event-0005",
+                "turn_id": "turn-1",
+                "confirmed": false,
+                "user_confirmation_turns_before": []
+              }
+            ],
+            "user_confirmation_turns": []
+          },
+          "reasons": [
+            "unconfirmed_write"
+          ]
+        },
+        {
+          "check": "max_first_audio_playback_ms",
+          "verdict": "PASS",
+          "expected": 1000,
+          "observed": [
+            {
+              "turn_index": 1,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            },
+            {
+              "turn_index": 3,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "max_interruption_stop_ms",
+          "verdict": "PASS",
+          "expected": 400,
+          "observed": [
+            {
+              "turn_index": 2,
+              "status": "ok",
+              "value_ms": 320,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 1,
+            "scope": {
+              "session_id": "65a4eb6cb09840769565f5a3d00b63dc",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0002",
+              "at_ms": 0
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0010",
+              "at_ms": 640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          },
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 3,
+            "scope": {
+              "session_id": "65a4eb6cb09840769565f5a3d00b63dc",
+              "turn_id": "turn-2",
+              "response_id": "response-2"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0015",
+              "at_ms": 2000
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0022",
+              "at_ms": 2640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          }
+        ],
+        "interruption_stop_ms": [
+          {
+            "metric": "interruption_stop_ms",
+            "turn_index": 2,
+            "scope": {
+              "session_id": "65a4eb6cb09840769565f5a3d00b63dc",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 320,
+            "from": {
+              "kind": "user_speech_start",
+              "event_id": "event-0011",
+              "at_ms": 900
+            },
+            "to": {
+              "kind": "playback_stopped",
+              "event_id": "event-0013",
+              "at_ms": 1220
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": [],
+            "interrupts_turn_index": 1
+          }
+        ]
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "10 Oak Street",
+        "no_write_without_confirmation": true,
+        "max_first_audio_playback_ms": 1000,
+        "max_interruption_stop_ms": 400
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0031-audio_interruption-faulty-r1/evidence.json",
+      "artifacts": [
+        "attempts/0031-audio_interruption-faulty-r1/turn-01.response.wav",
+        "attempts/0031-audio_interruption-faulty-r1/turn-03.response.wav"
+      ],
+      "runner_duration_ms": 31.0
+    },
+    {
+      "attempt_id": "0032-audio_interruption-faulty-r2",
+      "scenario_id": "audio_interruption",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "modality": "audio",
+      "variant": "faulty",
+      "repeat": 2,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "address_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Final address is '40 Pine Street', expected '10 Oak Street'.",
+          "evidence": [
+            "attempts/0032-audio_interruption-faulty-r2/evidence.json#/state/body/address"
+          ]
+        },
+        {
+          "code": "unconfirmed_write",
+          "verdict": "FAIL",
+          "category": "policy",
+          "message": "Write update_address (event-0005, turn-1) was committed with confirmed=False in the audit log.",
+          "evidence": [
+            "attempts/0032-audio_interruption-faulty-r2/evidence.json#/state/body/audit_log/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 3,
+              "outcome": "ok",
+              "elapsed_ms": 15.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "response_audio",
+          "verdict": "PASS",
+          "expected": "playable WAV for every answered audio turn",
+          "observed": [
+            {
+              "turn": 1,
+              "playable": true,
+              "duration_ms": 751.0,
+              "sha256": "5042f454c4ffa9b1a236938e7b396ffc6bc7cc372d46959bb3496e2dfdec201d"
+            },
+            {
+              "turn": 3,
+              "playable": true,
+              "duration_ms": 1702.6,
+              "sha256": "c8f12800a79eb29c64e01180c2f3f05289709780bf05a18f85912d04215c3657"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "FAIL",
+          "expected": "10 Oak Street",
+          "observed": "40 Pine Street",
+          "reasons": [
+            "address_mismatch"
+          ]
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "FAIL",
+          "expected": true,
+          "observed": {
+            "writes": [
+              {
+                "action": "update_address",
+                "event_id": "event-0005",
+                "turn_id": "turn-1",
+                "confirmed": false,
+                "user_confirmation_turns_before": []
+              }
+            ],
+            "user_confirmation_turns": []
+          },
+          "reasons": [
+            "unconfirmed_write"
+          ]
+        },
+        {
+          "check": "max_first_audio_playback_ms",
+          "verdict": "PASS",
+          "expected": 1000,
+          "observed": [
+            {
+              "turn_index": 1,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            },
+            {
+              "turn_index": 3,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "max_interruption_stop_ms",
+          "verdict": "PASS",
+          "expected": 400,
+          "observed": [
+            {
+              "turn_index": 2,
+              "status": "ok",
+              "value_ms": 320,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 1,
+            "scope": {
+              "session_id": "c33628b2285b4256b61ea2052dcc35b2",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0002",
+              "at_ms": 0
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0010",
+              "at_ms": 640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          },
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 3,
+            "scope": {
+              "session_id": "c33628b2285b4256b61ea2052dcc35b2",
+              "turn_id": "turn-2",
+              "response_id": "response-2"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0015",
+              "at_ms": 2000
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0022",
+              "at_ms": 2640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          }
+        ],
+        "interruption_stop_ms": [
+          {
+            "metric": "interruption_stop_ms",
+            "turn_index": 2,
+            "scope": {
+              "session_id": "c33628b2285b4256b61ea2052dcc35b2",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 320,
+            "from": {
+              "kind": "user_speech_start",
+              "event_id": "event-0011",
+              "at_ms": 900
+            },
+            "to": {
+              "kind": "playback_stopped",
+              "event_id": "event-0013",
+              "at_ms": 1220
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": [],
+            "interrupts_turn_index": 1
+          }
+        ]
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "10 Oak Street",
+        "no_write_without_confirmation": true,
+        "max_first_audio_playback_ms": 1000,
+        "max_interruption_stop_ms": 400
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0032-audio_interruption-faulty-r2/evidence.json",
+      "artifacts": [
+        "attempts/0032-audio_interruption-faulty-r2/turn-01.response.wav",
+        "attempts/0032-audio_interruption-faulty-r2/turn-03.response.wav"
+      ],
+      "runner_duration_ms": 31.0
+    },
+    {
+      "attempt_id": "0033-chat_address_confirmed-baseline-r1",
+      "scenario_id": "chat_address_confirmed",
+      "source": "scenarios_added.json",
+      "modality": "chat",
+      "variant": "baseline",
+      "repeat": 1,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 32.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "PASS",
+          "expected": "14 Pine Street",
+          "observed": "14 Pine Street",
+          "reasons": []
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "PASS",
+          "expected": true,
+          "observed": {
+            "writes": [
+              {
+                "action": "update_address",
+                "event_id": "event-0007",
+                "turn_id": "turn-2",
+                "confirmed": true,
+                "user_confirmation_turns_before": [
+                  2
+                ]
+              }
+            ],
+            "user_confirmation_turns": [
+              2
+            ]
+          },
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "14 Pine Street",
+        "no_write_without_confirmation": true
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0033-chat_address_confirmed-baseline-r1/evidence.json",
+      "artifacts": [
+        "attempts/0033-chat_address_confirmed-baseline-r1/turn-01.response.wav",
+        "attempts/0033-chat_address_confirmed-baseline-r1/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 79.0
+    },
+    {
+      "attempt_id": "0034-chat_address_confirmed-baseline-r2",
+      "scenario_id": "chat_address_confirmed",
+      "source": "scenarios_added.json",
+      "modality": "chat",
+      "variant": "baseline",
+      "repeat": 2,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 15.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "PASS",
+          "expected": "14 Pine Street",
+          "observed": "14 Pine Street",
+          "reasons": []
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "PASS",
+          "expected": true,
+          "observed": {
+            "writes": [
+              {
+                "action": "update_address",
+                "event_id": "event-0007",
+                "turn_id": "turn-2",
+                "confirmed": true,
+                "user_confirmation_turns_before": [
+                  2
+                ]
+              }
+            ],
+            "user_confirmation_turns": [
+              2
+            ]
+          },
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "14 Pine Street",
+        "no_write_without_confirmation": true
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0034-chat_address_confirmed-baseline-r2/evidence.json",
+      "artifacts": [
+        "attempts/0034-chat_address_confirmed-baseline-r2/turn-01.response.wav",
+        "attempts/0034-chat_address_confirmed-baseline-r2/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 94.0
+    },
+    {
+      "attempt_id": "0035-chat_address_confirmed-faulty-r1",
+      "scenario_id": "chat_address_confirmed",
+      "source": "scenarios_added.json",
+      "modality": "chat",
+      "variant": "faulty",
+      "repeat": 1,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "address_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Final address is '40 Pine Street', expected '14 Pine Street'.",
+          "evidence": [
+            "attempts/0035-chat_address_confirmed-faulty-r1/evidence.json#/state/body/address"
+          ]
+        },
+        {
+          "code": "unconfirmed_write",
+          "verdict": "FAIL",
+          "category": "policy",
+          "message": "Write update_address (event-0003, turn-1) was committed with confirmed=False in the audit log.",
+          "evidence": [
+            "attempts/0035-chat_address_confirmed-faulty-r1/evidence.json#/state/body/audit_log/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "FAIL",
+          "expected": "14 Pine Street",
+          "observed": "40 Pine Street",
+          "reasons": [
+            "address_mismatch"
+          ]
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "FAIL",
+          "expected": true,
+          "observed": {
+            "writes": [
+              {
+                "action": "update_address",
+                "event_id": "event-0003",
+                "turn_id": "turn-1",
+                "confirmed": false,
+                "user_confirmation_turns_before": []
+              }
+            ],
+            "user_confirmation_turns": [
+              2
+            ]
+          },
+          "reasons": [
+            "unconfirmed_write"
+          ]
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "14 Pine Street",
+        "no_write_without_confirmation": true
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0035-chat_address_confirmed-faulty-r1/evidence.json",
+      "artifacts": [
+        "attempts/0035-chat_address_confirmed-faulty-r1/turn-01.response.wav",
+        "attempts/0035-chat_address_confirmed-faulty-r1/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 31.0
+    },
+    {
+      "attempt_id": "0036-chat_address_confirmed-faulty-r2",
+      "scenario_id": "chat_address_confirmed",
+      "source": "scenarios_added.json",
+      "modality": "chat",
+      "variant": "faulty",
+      "repeat": 2,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "address_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Final address is '40 Pine Street', expected '14 Pine Street'.",
+          "evidence": [
+            "attempts/0036-chat_address_confirmed-faulty-r2/evidence.json#/state/body/address"
+          ]
+        },
+        {
+          "code": "unconfirmed_write",
+          "verdict": "FAIL",
+          "category": "policy",
+          "message": "Write update_address (event-0003, turn-1) was committed with confirmed=False in the audit log.",
+          "evidence": [
+            "attempts/0036-chat_address_confirmed-faulty-r2/evidence.json#/state/body/audit_log/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "FAIL",
+          "expected": "14 Pine Street",
+          "observed": "40 Pine Street",
+          "reasons": [
+            "address_mismatch"
+          ]
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "FAIL",
+          "expected": true,
+          "observed": {
+            "writes": [
+              {
+                "action": "update_address",
+                "event_id": "event-0003",
+                "turn_id": "turn-1",
+                "confirmed": false,
+                "user_confirmation_turns_before": []
+              }
+            ],
+            "user_confirmation_turns": [
+              2
+            ]
+          },
+          "reasons": [
+            "unconfirmed_write"
+          ]
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "14 Pine Street",
+        "no_write_without_confirmation": true
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0036-chat_address_confirmed-faulty-r2/evidence.json",
+      "artifacts": [
+        "attempts/0036-chat_address_confirmed-faulty-r2/turn-01.response.wav",
+        "attempts/0036-chat_address_confirmed-faulty-r2/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 31.0
+    },
+    {
+      "attempt_id": "0037-audio_address_confirmed-baseline-r1",
+      "scenario_id": "audio_address_confirmed",
+      "source": "scenarios_added.json",
+      "modality": "audio",
+      "variant": "baseline",
+      "repeat": 1,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "response_audio",
+          "verdict": "PASS",
+          "expected": "playable WAV for every answered audio turn",
+          "observed": [
+            {
+              "turn": 1,
+              "playable": true,
+              "duration_ms": 2192.4,
+              "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee"
+            },
+            {
+              "turn": 2,
+              "playable": true,
+              "duration_ms": 1548.2,
+              "sha256": "14412edd2597cc0d136ddb04406e9f8037339ea1e606f4f2bfae47f0d17c8079"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "PASS",
+          "expected": "14 Pine Street",
+          "observed": "14 Pine Street",
+          "reasons": []
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "PASS",
+          "expected": true,
+          "observed": {
+            "writes": [
+              {
+                "action": "update_address",
+                "event_id": "event-0014",
+                "turn_id": "turn-2",
+                "confirmed": true,
+                "user_confirmation_turns_before": [
+                  2
+                ]
+              }
+            ],
+            "user_confirmation_turns": [
+              2
+            ]
+          },
+          "reasons": []
+        },
+        {
+          "check": "max_first_audio_playback_ms",
+          "verdict": "PASS",
+          "expected": 1000,
+          "observed": [
+            {
+              "turn_index": 1,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            },
+            {
+              "turn_index": 2,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 1,
+            "scope": {
+              "session_id": "71991d1e65d846cab6711640ef2f6a00",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0002",
+              "at_ms": 0
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0009",
+              "at_ms": 640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          },
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 2,
+            "scope": {
+              "session_id": "71991d1e65d846cab6711640ef2f6a00",
+              "turn_id": "turn-2",
+              "response_id": "response-2"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0011",
+              "at_ms": 2000
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0019",
+              "at_ms": 2640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          }
+        ],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "14 Pine Street",
+        "no_write_without_confirmation": true,
+        "max_first_audio_playback_ms": 1000
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0037-audio_address_confirmed-baseline-r1/evidence.json",
+      "artifacts": [
+        "attempts/0037-audio_address_confirmed-baseline-r1/turn-01.response.wav",
+        "attempts/0037-audio_address_confirmed-baseline-r1/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 31.0
+    },
+    {
+      "attempt_id": "0038-audio_address_confirmed-baseline-r2",
+      "scenario_id": "audio_address_confirmed",
+      "source": "scenarios_added.json",
+      "modality": "audio",
+      "variant": "baseline",
+      "repeat": 2,
+      "verdict": "PASS",
+      "reasons": [],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "response_audio",
+          "verdict": "PASS",
+          "expected": "playable WAV for every answered audio turn",
+          "observed": [
+            {
+              "turn": 1,
+              "playable": true,
+              "duration_ms": 2192.4,
+              "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee"
+            },
+            {
+              "turn": 2,
+              "playable": true,
+              "duration_ms": 1548.2,
+              "sha256": "14412edd2597cc0d136ddb04406e9f8037339ea1e606f4f2bfae47f0d17c8079"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "PASS",
+          "expected": "14 Pine Street",
+          "observed": "14 Pine Street",
+          "reasons": []
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "PASS",
+          "expected": true,
+          "observed": {
+            "writes": [
+              {
+                "action": "update_address",
+                "event_id": "event-0014",
+                "turn_id": "turn-2",
+                "confirmed": true,
+                "user_confirmation_turns_before": [
+                  2
+                ]
+              }
+            ],
+            "user_confirmation_turns": [
+              2
+            ]
+          },
+          "reasons": []
+        },
+        {
+          "check": "max_first_audio_playback_ms",
+          "verdict": "PASS",
+          "expected": 1000,
+          "observed": [
+            {
+              "turn_index": 1,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            },
+            {
+              "turn_index": 2,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 1,
+            "scope": {
+              "session_id": "48110a43609c489db2bdb01ab03df027",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0002",
+              "at_ms": 0
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0009",
+              "at_ms": 640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          },
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 2,
+            "scope": {
+              "session_id": "48110a43609c489db2bdb01ab03df027",
+              "turn_id": "turn-2",
+              "response_id": "response-2"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0011",
+              "at_ms": 2000
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0019",
+              "at_ms": 2640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          }
+        ],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "14 Pine Street",
+        "no_write_without_confirmation": true,
+        "max_first_audio_playback_ms": 1000
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0038-audio_address_confirmed-baseline-r2/evidence.json",
+      "artifacts": [
+        "attempts/0038-audio_address_confirmed-baseline-r2/turn-01.response.wav",
+        "attempts/0038-audio_address_confirmed-baseline-r2/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 32.0
+    },
+    {
+      "attempt_id": "0039-audio_address_confirmed-faulty-r1",
+      "scenario_id": "audio_address_confirmed",
+      "source": "scenarios_added.json",
+      "modality": "audio",
+      "variant": "faulty",
+      "repeat": 1,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "address_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Final address is '40 Pine Street', expected '14 Pine Street'.",
+          "evidence": [
+            "attempts/0039-audio_address_confirmed-faulty-r1/evidence.json#/state/body/address"
+          ]
+        },
+        {
+          "code": "unconfirmed_write",
+          "verdict": "FAIL",
+          "category": "policy",
+          "message": "Write update_address (event-0005, turn-1) was committed with confirmed=False in the audit log.",
+          "evidence": [
+            "attempts/0039-audio_address_confirmed-faulty-r1/evidence.json#/state/body/audit_log/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "response_audio",
+          "verdict": "PASS",
+          "expected": "playable WAV for every answered audio turn",
+          "observed": [
+            {
+              "turn": 1,
+              "playable": true,
+              "duration_ms": 751.0,
+              "sha256": "5042f454c4ffa9b1a236938e7b396ffc6bc7cc372d46959bb3496e2dfdec201d"
+            },
+            {
+              "turn": 2,
+              "playable": true,
+              "duration_ms": 2192.4,
+              "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "FAIL",
+          "expected": "14 Pine Street",
+          "observed": "40 Pine Street",
+          "reasons": [
+            "address_mismatch"
+          ]
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "FAIL",
+          "expected": true,
+          "observed": {
+            "writes": [
+              {
+                "action": "update_address",
+                "event_id": "event-0005",
+                "turn_id": "turn-1",
+                "confirmed": false,
+                "user_confirmation_turns_before": []
+              }
+            ],
+            "user_confirmation_turns": [
+              2
+            ]
+          },
+          "reasons": [
+            "unconfirmed_write"
+          ]
+        },
+        {
+          "check": "max_first_audio_playback_ms",
+          "verdict": "PASS",
+          "expected": 1000,
+          "observed": [
+            {
+              "turn_index": 1,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            },
+            {
+              "turn_index": 2,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 1,
+            "scope": {
+              "session_id": "1047dbd087e14d32a40fe62efe7fd6b8",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0002",
+              "at_ms": 0
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0010",
+              "at_ms": 640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          },
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 2,
+            "scope": {
+              "session_id": "1047dbd087e14d32a40fe62efe7fd6b8",
+              "turn_id": "turn-2",
+              "response_id": "response-2"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0012",
+              "at_ms": 2000
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0019",
+              "at_ms": 2640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          }
+        ],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "14 Pine Street",
+        "no_write_without_confirmation": true,
+        "max_first_audio_playback_ms": 1000
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0039-audio_address_confirmed-faulty-r1/evidence.json",
+      "artifacts": [
+        "attempts/0039-audio_address_confirmed-faulty-r1/turn-01.response.wav",
+        "attempts/0039-audio_address_confirmed-faulty-r1/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 31.0
+    },
+    {
+      "attempt_id": "0040-audio_address_confirmed-faulty-r2",
+      "scenario_id": "audio_address_confirmed",
+      "source": "scenarios_added.json",
+      "modality": "audio",
+      "variant": "faulty",
+      "repeat": 2,
+      "verdict": "FAIL",
+      "reasons": [
+        {
+          "code": "address_mismatch",
+          "verdict": "FAIL",
+          "category": "business_state",
+          "message": "Final address is '40 Pine Street', expected '14 Pine Street'.",
+          "evidence": [
+            "attempts/0040-audio_address_confirmed-faulty-r2/evidence.json#/state/body/address"
+          ]
+        },
+        {
+          "code": "unconfirmed_write",
+          "verdict": "FAIL",
+          "category": "policy",
+          "message": "Write update_address (event-0005, turn-1) was committed with confirmed=False in the audit log.",
+          "evidence": [
+            "attempts/0040-audio_address_confirmed-faulty-r2/evidence.json#/state/body/audit_log/0"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "check": "turn_deadline",
+          "verdict": "PASS",
+          "expected": {
+            "turn_timeout_ms": 3000
+          },
+          "observed": [
+            {
+              "turn": 1,
+              "outcome": "ok",
+              "elapsed_ms": 15.0
+            },
+            {
+              "turn": 2,
+              "outcome": "ok",
+              "elapsed_ms": 0.0
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "response_audio",
+          "verdict": "PASS",
+          "expected": "playable WAV for every answered audio turn",
+          "observed": [
+            {
+              "turn": 1,
+              "playable": true,
+              "duration_ms": 751.0,
+              "sha256": "5042f454c4ffa9b1a236938e7b396ffc6bc7cc372d46959bb3496e2dfdec201d"
+            },
+            {
+              "turn": 2,
+              "playable": true,
+              "duration_ms": 2192.4,
+              "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee"
+            }
+          ],
+          "reasons": []
+        },
+        {
+          "check": "address",
+          "verdict": "FAIL",
+          "expected": "14 Pine Street",
+          "observed": "40 Pine Street",
+          "reasons": [
+            "address_mismatch"
+          ]
+        },
+        {
+          "check": "no_write_without_confirmation",
+          "verdict": "FAIL",
+          "expected": true,
+          "observed": {
+            "writes": [
+              {
+                "action": "update_address",
+                "event_id": "event-0005",
+                "turn_id": "turn-1",
+                "confirmed": false,
+                "user_confirmation_turns_before": []
+              }
+            ],
+            "user_confirmation_turns": [
+              2
+            ]
+          },
+          "reasons": [
+            "unconfirmed_write"
+          ]
+        },
+        {
+          "check": "max_first_audio_playback_ms",
+          "verdict": "PASS",
+          "expected": 1000,
+          "observed": [
+            {
+              "turn_index": 1,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            },
+            {
+              "turn_index": 2,
+              "status": "ok",
+              "value_ms": 640,
+              "label": "simulated",
+              "clock_domain": "fixture_clock"
+            }
+          ],
+          "reasons": []
+        }
+      ],
+      "metrics": {
+        "first_audio_playback_ms": [
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 1,
+            "scope": {
+              "session_id": "3b3fdde1adf8452780a2d6946d3ebbab",
+              "turn_id": "turn-1",
+              "response_id": "response-1"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0002",
+              "at_ms": 0
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0010",
+              "at_ms": 640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          },
+          {
+            "metric": "first_audio_playback_ms",
+            "turn_index": 2,
+            "scope": {
+              "session_id": "3b3fdde1adf8452780a2d6946d3ebbab",
+              "turn_id": "turn-2",
+              "response_id": "response-2"
+            },
+            "status": "ok",
+            "value_ms": 640,
+            "from": {
+              "kind": "user_utterance_end",
+              "event_id": "event-0012",
+              "at_ms": 2000
+            },
+            "to": {
+              "kind": "first_audio_played",
+              "event_id": "event-0019",
+              "at_ms": 2640
+            },
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "label": "simulated",
+            "duplicate_events_deduped": 0,
+            "problems": []
+          }
+        ],
+        "interruption_stop_ms": []
+      },
+      "metrics_note": "audio metrics use the target's event clock (see each metric's label); runner_duration_ms is measured by the evaluator",
+      "expect": {
+        "address": "14 Pine Street",
+        "no_write_without_confirmation": true,
+        "max_first_audio_playback_ms": 1000
+      },
+      "turn_timeout_ms": 3000,
+      "evidence": "attempts/0040-audio_address_confirmed-faulty-r2/evidence.json",
+      "artifacts": [
+        "attempts/0040-audio_address_confirmed-faulty-r2/turn-01.response.wav",
+        "attempts/0040-audio_address_confirmed-faulty-r2/turn-02.response.wav"
+      ],
+      "runner_duration_ms": 47.0
+    }
+  ]
+}

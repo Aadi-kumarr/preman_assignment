@@ -232,29 +232,23 @@ that produced it. Each run is 40 attempts: 10 distinct scenarios, 2 variants,
   is then over the limit on both audio turns of `audio_booking`, and the replay
   manifest lists each attempt whose outcome changed.
 
-### Earlier runs
+### Included runs
 
-These folders are kept as evidence only. They are not the submitted runs.
+Every run and replay in this repository was produced at commit `01efb3d`
+(`01efb3dd5592cbc6cd9975f637dd7e8ce16050fd`), and each manifest records that
+hash.
 
-Runs and replays whose manifests cite commit `723fa37` were produced by a commit
-that has since been rewritten, so that hash no longer exists in this repository:
+- `runs/20261116T192718Z-5d07ae8c`: concurrency 1, 40 attempts.
+- `runs/20261116T192723Z-e178942f`: concurrency 3, 40 attempts.
+- `replays/replay-20261116T192731Z-3389e5db`: the concurrency 1 run regraded
+  with unchanged expectations; 0 of 40 attempts differ.
+- `replays/replay-20261116T192731Z-4658fdcb`: the concurrency 3 run regraded
+  with unchanged expectations; 0 of 40 attempts differ.
+- `replays/replay-20261116T192732Z-3ae3c97a`: the concurrency 1 run regraded
+  with `--set "audio_booking.max_first_audio_playback_ms=500"`; the 4
+  `audio_booking` attempts gain `first_audio_playback_over_limit`.
 
-- `runs/20261113T211842Z-3e89cb5c`
-- `runs/20261113T211848Z-8b372864`
-- `replays/replay-20261113T211856Z-b6df7f18`
-- `replays/replay-20261113T211857Z-3f4104d2`
-- `replays/replay-20261113T211858Z-2a560abc`
-
-Runs and replays made before any commit, whose manifests say `uncommitted` with
-a source hash:
-
-- `runs/20261113T200036Z-4a329203` (chat gate)
-- `runs/20261113T202024Z-62bd8263` and `runs/20261113T202037Z-bf3e4239` (audio
-  gate, before and after the added audio scenario's expectation was set)
-- `runs/20261113T202039Z-553a716a` and `runs/20261113T202043Z-173cadaa` (first
-  demo runs)
-- `replays/replay-20261113T202021Z-6ec76ec0`, `replays/replay-20261113T202059Z-194842da`,
-  `replays/replay-20261113T202101Z-7e204da2`, `replays/replay-20261113T202101Z-806dfe86`
+Runs and replays made earlier, during development, are not included.
 
 ### Added scenarios
 
@@ -303,12 +297,6 @@ Approximately 8 hours.
 
 ## Unfinished work and next engineering step
 
-- `runs/` and `replays/` are not in git. They need to be included in the
-  submission archive so the generated reports and artifacts travel with the
-  code.
-- This README does not name the submitted run and replay IDs, because it was
-  committed before those runs were made. The run IDs are in
-  `evidence/demo_concurrency_equivalence.md`.
 - There is no single index page listing every run and replay.
 
 Next step: put state and trace reads behind the adapter boundary, so that a
@@ -335,6 +323,8 @@ How the code was checked:
 - **Verification gates.** Before any expectation was relied on, the supplied
   scenarios were run against both variants and the observed state recorded in
   `evidence/gate_chat_observed.md` and `evidence/gate_audio_observed.md`.
+  Those two files were generated during development; the runs they name are
+  not included in this repository.
   Baseline matched every expectation where state could be read. No expectation
   was changed to fit the target.
 - **Starter hash.** The starter folder's SHA-256

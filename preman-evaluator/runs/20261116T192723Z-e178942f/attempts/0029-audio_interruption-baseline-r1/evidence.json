@@ -1,0 +1,644 @@
+{
+  "evidence_schema": 1,
+  "attempt_id": "0029-audio_interruption-baseline-r1",
+  "run_id": "20261116T192723Z-e178942f",
+  "scenario_id": "audio_interruption",
+  "variant": "baseline",
+  "repeat": 1,
+  "started_at_utc": "2026-11-16T19:27:24.517Z",
+  "timing_note": "elapsed_ms values are measured by the runner with a monotonic clock; at_ms values inside target events are the target's simulated fixture clock.",
+  "session": {
+    "outcome": "ok",
+    "status": 201,
+    "elapsed_ms": 0.0,
+    "body": {
+      "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+      "run_id": "20261116T192723Z-e178942f",
+      "variant": "baseline",
+      "fixture": "address"
+    },
+    "request": {
+      "run_id": "20261116T192723Z-e178942f",
+      "variant": "baseline",
+      "fixture": "address"
+    }
+  },
+  "turns": [
+    {
+      "index": 1,
+      "type": "audio",
+      "deadline_ms": 3000,
+      "request": {
+        "audio_format": "wav",
+        "sent_as": "audio_base64",
+        "audio_path": "fixtures/audio/address_request.wav",
+        "audio_sha256": "bc9b59cb06844eca41a615f5ba7c397e9d9dd96bc19ee73e29abc527d022a9cc",
+        "audio_bytes": 114746,
+        "utterance_text": "Change it to 14 Pine Street. Ask me before saving.",
+        "utterance_source": "audio manifest; evaluator-side only, not sent to the target"
+      },
+      "outcome": "ok",
+      "status": 200,
+      "elapsed_ms": 32.0,
+      "body": {
+        "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+        "run_id": "20261116T192723Z-e178942f",
+        "turn_id": "turn-1",
+        "response_id": "response-1",
+        "input_mode": "audio",
+        "generated_text": "Please confirm that I should save 14 Pine Street.",
+        "audio_base64": {
+          "extracted_to": "turn-01.response.wav",
+          "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee",
+          "base64_chars": 99004
+        },
+        "audio_format": "wav",
+        "audio_fixture": "audio/agent_response.wav",
+        "audio_semantics": "prerecorded_fixture_not_tts_may_differ_from_generated_text",
+        "clock_domain": "fixture_clock",
+        "timing_source": "simulated",
+        "events": [
+          {
+            "event_id": "event-0001",
+            "kind": "input_received",
+            "at_ms": 0,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1",
+            "mode": "audio",
+            "text": "Change it to 14 Pine Street. Ask me before saving.",
+            "audio_sha256": "bc9b59cb06844eca41a615f5ba7c397e9d9dd96bc19ee73e29abc527d022a9cc",
+            "audio_byte_count": 114746
+          },
+          {
+            "event_id": "event-0002",
+            "kind": "user_utterance_end",
+            "at_ms": 0,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1"
+          },
+          {
+            "event_id": "event-0003",
+            "kind": "stt_final",
+            "at_ms": 120,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1",
+            "text": "Change it to 14 Pine Street. Ask me before saving.",
+            "source": "manifest_script_not_stt"
+          },
+          {
+            "event_id": "event-0004",
+            "kind": "model_request",
+            "at_ms": 220,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1"
+          },
+          {
+            "event_id": "event-0005",
+            "kind": "first_model_token",
+            "at_ms": 480,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1"
+          },
+          {
+            "event_id": "event-0006",
+            "kind": "generated_text",
+            "at_ms": 500,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1",
+            "text": "Please confirm that I should save 14 Pine Street."
+          },
+          {
+            "event_id": "event-0007",
+            "kind": "tts_request",
+            "at_ms": 520,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1",
+            "source": "prerecorded_fixture_not_tts"
+          },
+          {
+            "event_id": "event-0008",
+            "kind": "first_audio_bytes",
+            "at_ms": 560,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1"
+          },
+          {
+            "event_id": "event-0009",
+            "kind": "first_audio_played",
+            "at_ms": 640,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1",
+            "source": "simulated_client",
+            "audio_sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee"
+          }
+        ]
+      },
+      "deadline_exceeded": false,
+      "audio_artifact": {
+        "path": "turn-01.response.wav",
+        "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee",
+        "bytes": 74252,
+        "playable": true,
+        "duration_ms": 2192.4,
+        "sample_rate_hz": 16000,
+        "channels": 1,
+        "sample_width_bits": 16,
+        "frames": 35078
+      }
+    },
+    {
+      "index": 2,
+      "type": "interrupt",
+      "request": {
+        "action": "interrupt"
+      },
+      "timeout_ms": 5000,
+      "outcome": "ok",
+      "status": 200,
+      "elapsed_ms": 0.0,
+      "body": {
+        "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+        "events": [
+          {
+            "event_id": "event-0010",
+            "kind": "user_speech_start",
+            "at_ms": 900,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1"
+          },
+          {
+            "event_id": "event-0011",
+            "kind": "cancellation_requested",
+            "at_ms": 990,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1"
+          },
+          {
+            "event_id": "event-0012",
+            "kind": "playback_stopped",
+            "at_ms": 1220,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1",
+            "source": "simulated_client"
+          }
+        ],
+        "clock_domain": "fixture_clock",
+        "timing_source": "simulated",
+        "warning": "Telemetry fixture only; does not undo tool writes"
+      }
+    },
+    {
+      "index": 3,
+      "type": "audio",
+      "deadline_ms": 3000,
+      "request": {
+        "audio_format": "wav",
+        "sent_as": "audio_base64",
+        "audio_path": "fixtures/audio/correction.wav",
+        "audio_sha256": "bd8aa0bebfe65f9f18bf75280392707d2d2624e3df3c0f75ccb0320234efe77f",
+        "audio_bytes": 81602,
+        "utterance_text": "No, fourteen. Don't save yet.",
+        "utterance_source": "audio manifest; evaluator-side only, not sent to the target"
+      },
+      "outcome": "ok",
+      "status": 200,
+      "elapsed_ms": 15.0,
+      "body": {
+        "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+        "run_id": "20261116T192723Z-e178942f",
+        "turn_id": "turn-2",
+        "response_id": "response-2",
+        "input_mode": "audio",
+        "generated_text": "I will wait for your confirmation.",
+        "audio_base64": {
+          "extracted_to": "turn-03.response.wav",
+          "sha256": "c8f12800a79eb29c64e01180c2f3f05289709780bf05a18f85912d04215c3657",
+          "base64_chars": 78104
+        },
+        "audio_format": "wav",
+        "audio_fixture": "audio/agent_nochange.wav",
+        "audio_semantics": "prerecorded_fixture_not_tts_may_differ_from_generated_text",
+        "clock_domain": "fixture_clock",
+        "timing_source": "simulated",
+        "events": [
+          {
+            "event_id": "event-0013",
+            "kind": "input_received",
+            "at_ms": 2000,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-2",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-2",
+            "mode": "audio",
+            "text": "No, fourteen. Don't save yet.",
+            "audio_sha256": "bd8aa0bebfe65f9f18bf75280392707d2d2624e3df3c0f75ccb0320234efe77f",
+            "audio_byte_count": 81602
+          },
+          {
+            "event_id": "event-0014",
+            "kind": "user_utterance_end",
+            "at_ms": 2000,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-2",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-2"
+          },
+          {
+            "event_id": "event-0015",
+            "kind": "stt_final",
+            "at_ms": 2120,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-2",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-2",
+            "text": "No, fourteen. Don't save yet.",
+            "source": "manifest_script_not_stt"
+          },
+          {
+            "event_id": "event-0016",
+            "kind": "model_request",
+            "at_ms": 2220,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-2",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-2"
+          },
+          {
+            "event_id": "event-0017",
+            "kind": "first_model_token",
+            "at_ms": 2480,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-2",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-2"
+          },
+          {
+            "event_id": "event-0018",
+            "kind": "generated_text",
+            "at_ms": 2500,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-2",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-2",
+            "text": "I will wait for your confirmation."
+          },
+          {
+            "event_id": "event-0019",
+            "kind": "tts_request",
+            "at_ms": 2520,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-2",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-2",
+            "source": "prerecorded_fixture_not_tts"
+          },
+          {
+            "event_id": "event-0020",
+            "kind": "first_audio_bytes",
+            "at_ms": 2560,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-2",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-2"
+          },
+          {
+            "event_id": "event-0021",
+            "kind": "first_audio_played",
+            "at_ms": 2640,
+            "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+            "turn_id": "turn-2",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-2",
+            "source": "simulated_client",
+            "audio_sha256": "c8f12800a79eb29c64e01180c2f3f05289709780bf05a18f85912d04215c3657"
+          }
+        ]
+      },
+      "deadline_exceeded": false,
+      "audio_artifact": {
+        "path": "turn-03.response.wav",
+        "sha256": "c8f12800a79eb29c64e01180c2f3f05289709780bf05a18f85912d04215c3657",
+        "bytes": 58578,
+        "playable": true,
+        "duration_ms": 1702.6,
+        "sample_rate_hz": 16000,
+        "channels": 1,
+        "sample_width_bits": 16,
+        "frames": 27241
+      }
+    }
+  ],
+  "state": {
+    "outcome": "ok",
+    "status": 200,
+    "elapsed_ms": 0.0,
+    "body": {
+      "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+      "run_id": "20261116T192723Z-e178942f",
+      "authoritative": true,
+      "bookings": [],
+      "address": "10 Oak Street",
+      "audit_log": []
+    }
+  },
+  "trace": {
+    "outcome": "ok",
+    "status": 200,
+    "elapsed_ms": 0.0,
+    "body": {
+      "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+      "run_id": "20261116T192723Z-e178942f",
+      "clock_domain": "fixture_clock",
+      "timing_source": "simulated",
+      "events": [
+        {
+          "event_id": "event-0001",
+          "kind": "input_received",
+          "at_ms": 0,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1",
+          "mode": "audio",
+          "text": "Change it to 14 Pine Street. Ask me before saving.",
+          "audio_sha256": "bc9b59cb06844eca41a615f5ba7c397e9d9dd96bc19ee73e29abc527d022a9cc",
+          "audio_byte_count": 114746
+        },
+        {
+          "event_id": "event-0002",
+          "kind": "user_utterance_end",
+          "at_ms": 0,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1"
+        },
+        {
+          "event_id": "event-0003",
+          "kind": "stt_final",
+          "at_ms": 120,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1",
+          "text": "Change it to 14 Pine Street. Ask me before saving.",
+          "source": "manifest_script_not_stt"
+        },
+        {
+          "event_id": "event-0004",
+          "kind": "model_request",
+          "at_ms": 220,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1"
+        },
+        {
+          "event_id": "event-0005",
+          "kind": "first_model_token",
+          "at_ms": 480,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1"
+        },
+        {
+          "event_id": "event-0006",
+          "kind": "generated_text",
+          "at_ms": 500,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1",
+          "text": "Please confirm that I should save 14 Pine Street."
+        },
+        {
+          "event_id": "event-0007",
+          "kind": "tts_request",
+          "at_ms": 520,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1",
+          "source": "prerecorded_fixture_not_tts"
+        },
+        {
+          "event_id": "event-0008",
+          "kind": "first_audio_bytes",
+          "at_ms": 560,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1"
+        },
+        {
+          "event_id": "event-0009",
+          "kind": "first_audio_played",
+          "at_ms": 640,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1",
+          "source": "simulated_client",
+          "audio_sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee"
+        },
+        {
+          "event_id": "event-0010",
+          "kind": "user_speech_start",
+          "at_ms": 900,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1"
+        },
+        {
+          "event_id": "event-0011",
+          "kind": "cancellation_requested",
+          "at_ms": 990,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1"
+        },
+        {
+          "event_id": "event-0012",
+          "kind": "playback_stopped",
+          "at_ms": 1220,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1",
+          "source": "simulated_client"
+        },
+        {
+          "event_id": "event-0013",
+          "kind": "input_received",
+          "at_ms": 2000,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-2",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-2",
+          "mode": "audio",
+          "text": "No, fourteen. Don't save yet.",
+          "audio_sha256": "bd8aa0bebfe65f9f18bf75280392707d2d2624e3df3c0f75ccb0320234efe77f",
+          "audio_byte_count": 81602
+        },
+        {
+          "event_id": "event-0014",
+          "kind": "user_utterance_end",
+          "at_ms": 2000,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-2",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-2"
+        },
+        {
+          "event_id": "event-0015",
+          "kind": "stt_final",
+          "at_ms": 2120,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-2",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-2",
+          "text": "No, fourteen. Don't save yet.",
+          "source": "manifest_script_not_stt"
+        },
+        {
+          "event_id": "event-0016",
+          "kind": "model_request",
+          "at_ms": 2220,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-2",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-2"
+        },
+        {
+          "event_id": "event-0017",
+          "kind": "first_model_token",
+          "at_ms": 2480,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-2",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-2"
+        },
+        {
+          "event_id": "event-0018",
+          "kind": "generated_text",
+          "at_ms": 2500,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-2",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-2",
+          "text": "I will wait for your confirmation."
+        },
+        {
+          "event_id": "event-0019",
+          "kind": "tts_request",
+          "at_ms": 2520,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-2",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-2",
+          "source": "prerecorded_fixture_not_tts"
+        },
+        {
+          "event_id": "event-0020",
+          "kind": "first_audio_bytes",
+          "at_ms": 2560,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-2",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-2"
+        },
+        {
+          "event_id": "event-0021",
+          "kind": "first_audio_played",
+          "at_ms": 2640,
+          "session_id": "6e6c250a00f54c3f99dadc543d352a36",
+          "turn_id": "turn-2",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-2",
+          "source": "simulated_client",
+          "audio_sha256": "c8f12800a79eb29c64e01180c2f3f05289709780bf05a18f85912d04215c3657"
+        }
+      ]
+    }
+  },
+  "cleanup": {
+    "outcome": "ok",
+    "status": 200,
+    "elapsed_ms": 0.0,
+    "body": {
+      "deleted": true,
+      "session_id": "6e6c250a00f54c3f99dadc543d352a36"
+    }
+  },
+  "harness_errors": [],
+  "runner_duration_ms": 47.0
+}

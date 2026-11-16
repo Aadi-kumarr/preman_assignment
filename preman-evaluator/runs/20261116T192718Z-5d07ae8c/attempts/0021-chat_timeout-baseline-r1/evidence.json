@@ -1,0 +1,76 @@
+{
+  "evidence_schema": 1,
+  "attempt_id": "0021-chat_timeout-baseline-r1",
+  "run_id": "20261116T192718Z-5d07ae8c",
+  "scenario_id": "chat_timeout",
+  "variant": "baseline",
+  "repeat": 1,
+  "started_at_utc": "2026-11-16T19:27:20.342Z",
+  "timing_note": "elapsed_ms values are measured by the runner with a monotonic clock; at_ms values inside target events are the target's simulated fixture clock.",
+  "session": {
+    "outcome": "ok",
+    "status": 201,
+    "elapsed_ms": 0.0,
+    "body": {
+      "session_id": "fac06dc3d29b481c94565ba057862ef4",
+      "run_id": "20261116T192718Z-5d07ae8c",
+      "variant": "baseline",
+      "fixture": "slow"
+    },
+    "request": {
+      "run_id": "20261116T192718Z-5d07ae8c",
+      "variant": "baseline",
+      "fixture": "slow"
+    }
+  },
+  "turns": [
+    {
+      "index": 1,
+      "type": "text",
+      "request": {
+        "text": "Book appointment for C1 at 2026-12-01T10:00:00Z"
+      },
+      "deadline_ms": 400,
+      "outcome": "timeout",
+      "elapsed_ms": 407.0,
+      "error": "no response within 400 ms",
+      "deadline_exceeded": true
+    }
+  ],
+  "state": {
+    "outcome": "ok",
+    "status": 200,
+    "elapsed_ms": 15.0,
+    "body": {
+      "session_id": "fac06dc3d29b481c94565ba057862ef4",
+      "run_id": "20261116T192718Z-5d07ae8c",
+      "authoritative": true,
+      "bookings": [],
+      "address": "10 Oak Street",
+      "audit_log": []
+    }
+  },
+  "trace": {
+    "outcome": "ok",
+    "status": 200,
+    "elapsed_ms": 16.0,
+    "body": {
+      "session_id": "fac06dc3d29b481c94565ba057862ef4",
+      "run_id": "20261116T192718Z-5d07ae8c",
+      "clock_domain": "fixture_clock",
+      "timing_source": "simulated",
+      "events": []
+    }
+  },
+  "cleanup": {
+    "outcome": "ok",
+    "status": 200,
+    "elapsed_ms": 16.0,
+    "body": {
+      "deleted": true,
+      "session_id": "fac06dc3d29b481c94565ba057862ef4"
+    }
+  },
+  "harness_errors": [],
+  "runner_duration_ms": 454.0
+}

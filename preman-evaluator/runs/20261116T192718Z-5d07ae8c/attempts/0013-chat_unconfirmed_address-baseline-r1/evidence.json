@@ -1,0 +1,194 @@
+{
+  "evidence_schema": 1,
+  "attempt_id": "0013-chat_unconfirmed_address-baseline-r1",
+  "run_id": "20261116T192718Z-5d07ae8c",
+  "scenario_id": "chat_unconfirmed_address",
+  "variant": "baseline",
+  "repeat": 1,
+  "started_at_utc": "2026-11-16T19:27:19.809Z",
+  "timing_note": "elapsed_ms values are measured by the runner with a monotonic clock; at_ms values inside target events are the target's simulated fixture clock.",
+  "session": {
+    "outcome": "ok",
+    "status": 201,
+    "elapsed_ms": 16.0,
+    "body": {
+      "session_id": "5359095661644c7fbbfe061aa6512f8c",
+      "run_id": "20261116T192718Z-5d07ae8c",
+      "variant": "baseline",
+      "fixture": "address"
+    },
+    "request": {
+      "run_id": "20261116T192718Z-5d07ae8c",
+      "variant": "baseline",
+      "fixture": "address"
+    }
+  },
+  "turns": [
+    {
+      "index": 1,
+      "type": "text",
+      "request": {
+        "text": "Change it to 14 Pine Street. Ask me before saving."
+      },
+      "deadline_ms": 3000,
+      "outcome": "ok",
+      "status": 200,
+      "elapsed_ms": 0.0,
+      "body": {
+        "session_id": "5359095661644c7fbbfe061aa6512f8c",
+        "run_id": "20261116T192718Z-5d07ae8c",
+        "turn_id": "turn-1",
+        "response_id": "response-1",
+        "input_mode": "chat",
+        "generated_text": "Please confirm that I should save 14 Pine Street.",
+        "audio_base64": {
+          "extracted_to": "turn-01.response.wav",
+          "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee",
+          "base64_chars": 99004
+        },
+        "audio_format": "wav",
+        "audio_fixture": "audio/agent_response.wav",
+        "audio_semantics": "prerecorded_fixture_not_tts_may_differ_from_generated_text",
+        "clock_domain": "fixture_clock",
+        "timing_source": "simulated",
+        "events": [
+          {
+            "event_id": "event-0001",
+            "kind": "input_received",
+            "at_ms": 0,
+            "session_id": "5359095661644c7fbbfe061aa6512f8c",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1",
+            "mode": "chat",
+            "text": "Change it to 14 Pine Street. Ask me before saving."
+          },
+          {
+            "event_id": "event-0002",
+            "kind": "model_request",
+            "at_ms": 220,
+            "session_id": "5359095661644c7fbbfe061aa6512f8c",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1"
+          },
+          {
+            "event_id": "event-0003",
+            "kind": "first_model_token",
+            "at_ms": 480,
+            "session_id": "5359095661644c7fbbfe061aa6512f8c",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1"
+          },
+          {
+            "event_id": "event-0004",
+            "kind": "generated_text",
+            "at_ms": 500,
+            "session_id": "5359095661644c7fbbfe061aa6512f8c",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1",
+            "text": "Please confirm that I should save 14 Pine Street."
+          }
+        ]
+      },
+      "deadline_exceeded": false,
+      "audio_artifact": {
+        "path": "turn-01.response.wav",
+        "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee",
+        "bytes": 74252,
+        "playable": true,
+        "duration_ms": 2192.4,
+        "sample_rate_hz": 16000,
+        "channels": 1,
+        "sample_width_bits": 16,
+        "frames": 35078
+      }
+    }
+  ],
+  "state": {
+    "outcome": "ok",
+    "status": 200,
+    "elapsed_ms": 15.0,
+    "body": {
+      "session_id": "5359095661644c7fbbfe061aa6512f8c",
+      "run_id": "20261116T192718Z-5d07ae8c",
+      "authoritative": true,
+      "bookings": [],
+      "address": "10 Oak Street",
+      "audit_log": []
+    }
+  },
+  "trace": {
+    "outcome": "ok",
+    "status": 200,
+    "elapsed_ms": 16.0,
+    "body": {
+      "session_id": "5359095661644c7fbbfe061aa6512f8c",
+      "run_id": "20261116T192718Z-5d07ae8c",
+      "clock_domain": "fixture_clock",
+      "timing_source": "simulated",
+      "events": [
+        {
+          "event_id": "event-0001",
+          "kind": "input_received",
+          "at_ms": 0,
+          "session_id": "5359095661644c7fbbfe061aa6512f8c",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1",
+          "mode": "chat",
+          "text": "Change it to 14 Pine Street. Ask me before saving."
+        },
+        {
+          "event_id": "event-0002",
+          "kind": "model_request",
+          "at_ms": 220,
+          "session_id": "5359095661644c7fbbfe061aa6512f8c",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1"
+        },
+        {
+          "event_id": "event-0003",
+          "kind": "first_model_token",
+          "at_ms": 480,
+          "session_id": "5359095661644c7fbbfe061aa6512f8c",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1"
+        },
+        {
+          "event_id": "event-0004",
+          "kind": "generated_text",
+          "at_ms": 500,
+          "session_id": "5359095661644c7fbbfe061aa6512f8c",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1",
+          "text": "Please confirm that I should save 14 Pine Street."
+        }
+      ]
+    }
+  },
+  "cleanup": {
+    "outcome": "ok",
+    "status": 200,
+    "elapsed_ms": 16.0,
+    "body": {
+      "deleted": true,
+      "session_id": "5359095661644c7fbbfe061aa6512f8c"
+    }
+  },
+  "harness_errors": [],
+  "runner_duration_ms": 63.0
+}

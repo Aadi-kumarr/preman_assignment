@@ -1,0 +1,667 @@
+{
+  "manifest_schema": 1,
+  "kind": "replay",
+  "replay_id": "replay-20261116T192732Z-3ae3c97a",
+  "run_id": "replay-20261116T192732Z-3ae3c97a",
+  "original_run_id": "20261116T192718Z-5d07ae8c",
+  "original_run_path": "../../runs/20261116T192718Z-5d07ae8c",
+  "started_at_utc": "2026-11-16T19:27:32.908Z",
+  "evaluator": {
+    "git_commit": "01efb3dd5592cbc6cd9975f637dd7e8ce16050fd",
+    "git_head": "01efb3dd5592cbc6cd9975f637dd7e8ce16050fd",
+    "git_dirty": false,
+    "source_sha256": "bcbed66988f9a2ef8c99ed70fbbdef5b8825016fb3bd33cf9ebb57ad5f1a700b",
+    "source_files_hashed": 15,
+    "source_hash_scope": "preman_eval/**/*.py"
+  },
+  "target_contacted": false,
+  "target_note": "Replay reads saved files only. It has no HTTP client and sends no requests.",
+  "expectations": {
+    "unchanged": false,
+    "override_files": [],
+    "set_overrides": [
+      "audio_booking.max_first_audio_playback_ms=500"
+    ],
+    "changed": [
+      {
+        "scenario_id": "audio_booking",
+        "original_expect": {
+          "booking": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "max_first_audio_playback_ms": 1000
+        },
+        "replay_expect": {
+          "booking": {
+            "count": 1,
+            "customer_id": "C1",
+            "starts_at": "2026-12-01T10:00:00Z"
+          },
+          "max_first_audio_playback_ms": 500
+        }
+      }
+    ],
+    "notes": []
+  },
+  "reproduction": {
+    "identical_to_original": false,
+    "meaning": "verdict, reason codes and every check outcome per attempt, compared with the original results.json",
+    "attempts_compared": 40,
+    "differences": [
+      {
+        "attempt_id": "0025-audio_booking-baseline-r1",
+        "scenario_id": "audio_booking",
+        "variant": "baseline",
+        "repeat": 1,
+        "original_verdict": "PASS",
+        "replay_verdict": "FAIL",
+        "original_reasons": [],
+        "replay_reasons": [
+          "first_audio_playback_over_limit",
+          "first_audio_playback_over_limit"
+        ],
+        "changed_checks": [
+          "max_first_audio_playback_ms"
+        ]
+      },
+      {
+        "attempt_id": "0026-audio_booking-baseline-r2",
+        "scenario_id": "audio_booking",
+        "variant": "baseline",
+        "repeat": 2,
+        "original_verdict": "PASS",
+        "replay_verdict": "FAIL",
+        "original_reasons": [],
+        "replay_reasons": [
+          "first_audio_playback_over_limit",
+          "first_audio_playback_over_limit"
+        ],
+        "changed_checks": [
+          "max_first_audio_playback_ms"
+        ]
+      },
+      {
+        "attempt_id": "0027-audio_booking-faulty-r1",
+        "scenario_id": "audio_booking",
+        "variant": "faulty",
+        "repeat": 1,
+        "original_verdict": "FAIL",
+        "replay_verdict": "FAIL",
+        "original_reasons": [
+          "booking_starts_at_mismatch"
+        ],
+        "replay_reasons": [
+          "booking_starts_at_mismatch",
+          "first_audio_playback_over_limit",
+          "first_audio_playback_over_limit"
+        ],
+        "changed_checks": [
+          "max_first_audio_playback_ms"
+        ]
+      },
+      {
+        "attempt_id": "0028-audio_booking-faulty-r2",
+        "scenario_id": "audio_booking",
+        "variant": "faulty",
+        "repeat": 2,
+        "original_verdict": "FAIL",
+        "replay_verdict": "FAIL",
+        "original_reasons": [
+          "booking_starts_at_mismatch"
+        ],
+        "replay_reasons": [
+          "booking_starts_at_mismatch",
+          "first_audio_playback_over_limit",
+          "first_audio_playback_over_limit"
+        ],
+        "changed_checks": [
+          "max_first_audio_playback_ms"
+        ]
+      }
+    ]
+  },
+  "artifact_problems": [],
+  "original_manifest": {
+    "manifest_schema": 1,
+    "run_id": "20261116T192718Z-5d07ae8c",
+    "status": "completed",
+    "started_at_utc": "2026-11-16T19:27:18.949Z",
+    "finished_at_utc": "2026-11-16T19:27:23.234Z",
+    "evaluator": {
+      "git_commit": "01efb3dd5592cbc6cd9975f637dd7e8ce16050fd",
+      "git_head": "01efb3dd5592cbc6cd9975f637dd7e8ce16050fd",
+      "git_dirty": false,
+      "source_sha256": "bcbed66988f9a2ef8c99ed70fbbdef5b8825016fb3bd33cf9ebb57ad5f1a700b",
+      "source_files_hashed": 15,
+      "source_hash_scope": "preman_eval/**/*.py",
+      "version": "0.1.0",
+      "python": "3.11.9"
+    },
+    "starter": {
+      "path": "../preman-agent-evaluation",
+      "sha256": "8b94a55636e92a395112fdc1ef366b1f0fb86fcd85158100dadcf7e9a9f17525",
+      "files": 16,
+      "hash_method": "sha256 over every file's POSIX relative path and content sha256, in sorted path order",
+      "sha256_after_run": "8b94a55636e92a395112fdc1ef366b1f0fb86fcd85158100dadcf7e9a9f17525",
+      "unchanged_during_run": true,
+      "expected_sha256": "8b94a55636e92a395112fdc1ef366b1f0fb86fcd85158100dadcf7e9a9f17525",
+      "matches_expected": true
+    },
+    "scenario_files": [
+      {
+        "path": "../preman-agent-evaluation/scenarios.json",
+        "sha256": "82446667de9b042f39c237ab7e236d29ff2a9e17f049cf55e14750a2c3c37511",
+        "copy": "scenarios/00-scenarios.json"
+      },
+      {
+        "path": "scenarios_added.json",
+        "sha256": "9195d90856703f6dc8d2c9cdbcc18522904cff1198357f7a62177e0fab29085b",
+        "copy": "scenarios/01-scenarios_added.json"
+      }
+    ],
+    "target": {
+      "base_url": "http://127.0.0.1:63154",
+      "variants": [
+        "baseline",
+        "faulty"
+      ],
+      "health_before": {
+        "outcome": "ok",
+        "status": 200,
+        "active_sessions": 0,
+        "error": null
+      },
+      "health_after": {
+        "outcome": "ok",
+        "status": 200,
+        "active_sessions": 0,
+        "error": null
+      }
+    },
+    "config": {
+      "base_url": "http://127.0.0.1:63154",
+      "starter_dir": "../preman-agent-evaluation",
+      "scenario_files": [
+        "../preman-agent-evaluation/scenarios.json",
+        "scenarios_added.json"
+      ],
+      "variants": [
+        "baseline",
+        "faulty"
+      ],
+      "repeats": 2,
+      "concurrency": 1,
+      "harness_timeout_ms": 5000,
+      "confirmation_phrases": [
+        "yes",
+        "confirm",
+        "yes confirm",
+        "yes, confirm"
+      ],
+      "audio_manifest": "fixtures/audio_manifest.json",
+      "expected_starter_sha256": "8b94a55636e92a395112fdc1ef366b1f0fb86fcd85158100dadcf7e9a9f17525"
+    },
+    "concurrency": 1,
+    "repeats": 2,
+    "harness_timeout_ms": 5000,
+    "policy": {
+      "confirmation_phrases": [
+        "yes",
+        "confirm",
+        "yes confirm",
+        "yes, confirm"
+      ]
+    },
+    "counts": {
+      "distinct_scenarios": 10,
+      "variants": 2,
+      "repeats": 2,
+      "attempts": 40
+    },
+    "skipped_scenarios": [],
+    "artifacts": {
+      "results": "results.json",
+      "report": "report.md",
+      "scenario_copies": "scenarios/",
+      "comparison": "comparison.json",
+      "comparison_report": "comparison.md"
+    },
+    "attempts": [
+      {
+        "attempt_id": "0001-chat_booking-baseline-r1",
+        "scenario_id": "chat_booking",
+        "variant": "baseline",
+        "repeat": 1,
+        "evidence": "attempts/0001-chat_booking-baseline-r1/evidence.json",
+        "artifacts": [
+          "attempts/0001-chat_booking-baseline-r1/turn-01.response.wav",
+          "attempts/0001-chat_booking-baseline-r1/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0002-chat_booking-baseline-r2",
+        "scenario_id": "chat_booking",
+        "variant": "baseline",
+        "repeat": 2,
+        "evidence": "attempts/0002-chat_booking-baseline-r2/evidence.json",
+        "artifacts": [
+          "attempts/0002-chat_booking-baseline-r2/turn-01.response.wav",
+          "attempts/0002-chat_booking-baseline-r2/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0003-chat_booking-faulty-r1",
+        "scenario_id": "chat_booking",
+        "variant": "faulty",
+        "repeat": 1,
+        "evidence": "attempts/0003-chat_booking-faulty-r1/evidence.json",
+        "artifacts": [
+          "attempts/0003-chat_booking-faulty-r1/turn-01.response.wav",
+          "attempts/0003-chat_booking-faulty-r1/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0004-chat_booking-faulty-r2",
+        "scenario_id": "chat_booking",
+        "variant": "faulty",
+        "repeat": 2,
+        "evidence": "attempts/0004-chat_booking-faulty-r2/evidence.json",
+        "artifacts": [
+          "attempts/0004-chat_booking-faulty-r2/turn-01.response.wav",
+          "attempts/0004-chat_booking-faulty-r2/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0005-chat_false_success-baseline-r1",
+        "scenario_id": "chat_false_success",
+        "variant": "baseline",
+        "repeat": 1,
+        "evidence": "attempts/0005-chat_false_success-baseline-r1/evidence.json",
+        "artifacts": [
+          "attempts/0005-chat_false_success-baseline-r1/turn-01.response.wav",
+          "attempts/0005-chat_false_success-baseline-r1/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0006-chat_false_success-baseline-r2",
+        "scenario_id": "chat_false_success",
+        "variant": "baseline",
+        "repeat": 2,
+        "evidence": "attempts/0006-chat_false_success-baseline-r2/evidence.json",
+        "artifacts": [
+          "attempts/0006-chat_false_success-baseline-r2/turn-01.response.wav",
+          "attempts/0006-chat_false_success-baseline-r2/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0007-chat_false_success-faulty-r1",
+        "scenario_id": "chat_false_success",
+        "variant": "faulty",
+        "repeat": 1,
+        "evidence": "attempts/0007-chat_false_success-faulty-r1/evidence.json",
+        "artifacts": [
+          "attempts/0007-chat_false_success-faulty-r1/turn-01.response.wav",
+          "attempts/0007-chat_false_success-faulty-r1/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0008-chat_false_success-faulty-r2",
+        "scenario_id": "chat_false_success",
+        "variant": "faulty",
+        "repeat": 2,
+        "evidence": "attempts/0008-chat_false_success-faulty-r2/evidence.json",
+        "artifacts": [
+          "attempts/0008-chat_false_success-faulty-r2/turn-01.response.wav",
+          "attempts/0008-chat_false_success-faulty-r2/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0009-chat_retry-baseline-r1",
+        "scenario_id": "chat_retry",
+        "variant": "baseline",
+        "repeat": 1,
+        "evidence": "attempts/0009-chat_retry-baseline-r1/evidence.json",
+        "artifacts": [
+          "attempts/0009-chat_retry-baseline-r1/turn-01.response.wav",
+          "attempts/0009-chat_retry-baseline-r1/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0010-chat_retry-baseline-r2",
+        "scenario_id": "chat_retry",
+        "variant": "baseline",
+        "repeat": 2,
+        "evidence": "attempts/0010-chat_retry-baseline-r2/evidence.json",
+        "artifacts": [
+          "attempts/0010-chat_retry-baseline-r2/turn-01.response.wav",
+          "attempts/0010-chat_retry-baseline-r2/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0011-chat_retry-faulty-r1",
+        "scenario_id": "chat_retry",
+        "variant": "faulty",
+        "repeat": 1,
+        "evidence": "attempts/0011-chat_retry-faulty-r1/evidence.json",
+        "artifacts": [
+          "attempts/0011-chat_retry-faulty-r1/turn-01.response.wav",
+          "attempts/0011-chat_retry-faulty-r1/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0012-chat_retry-faulty-r2",
+        "scenario_id": "chat_retry",
+        "variant": "faulty",
+        "repeat": 2,
+        "evidence": "attempts/0012-chat_retry-faulty-r2/evidence.json",
+        "artifacts": [
+          "attempts/0012-chat_retry-faulty-r2/turn-01.response.wav",
+          "attempts/0012-chat_retry-faulty-r2/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0013-chat_unconfirmed_address-baseline-r1",
+        "scenario_id": "chat_unconfirmed_address",
+        "variant": "baseline",
+        "repeat": 1,
+        "evidence": "attempts/0013-chat_unconfirmed_address-baseline-r1/evidence.json",
+        "artifacts": [
+          "attempts/0013-chat_unconfirmed_address-baseline-r1/turn-01.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0014-chat_unconfirmed_address-baseline-r2",
+        "scenario_id": "chat_unconfirmed_address",
+        "variant": "baseline",
+        "repeat": 2,
+        "evidence": "attempts/0014-chat_unconfirmed_address-baseline-r2/evidence.json",
+        "artifacts": [
+          "attempts/0014-chat_unconfirmed_address-baseline-r2/turn-01.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0015-chat_unconfirmed_address-faulty-r1",
+        "scenario_id": "chat_unconfirmed_address",
+        "variant": "faulty",
+        "repeat": 1,
+        "evidence": "attempts/0015-chat_unconfirmed_address-faulty-r1/evidence.json",
+        "artifacts": [
+          "attempts/0015-chat_unconfirmed_address-faulty-r1/turn-01.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0016-chat_unconfirmed_address-faulty-r2",
+        "scenario_id": "chat_unconfirmed_address",
+        "variant": "faulty",
+        "repeat": 2,
+        "evidence": "attempts/0016-chat_unconfirmed_address-faulty-r2/evidence.json",
+        "artifacts": [
+          "attempts/0016-chat_unconfirmed_address-faulty-r2/turn-01.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0017-chat_state_error-baseline-r1",
+        "scenario_id": "chat_state_error",
+        "variant": "baseline",
+        "repeat": 1,
+        "evidence": "attempts/0017-chat_state_error-baseline-r1/evidence.json",
+        "artifacts": [
+          "attempts/0017-chat_state_error-baseline-r1/turn-01.response.wav",
+          "attempts/0017-chat_state_error-baseline-r1/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0018-chat_state_error-baseline-r2",
+        "scenario_id": "chat_state_error",
+        "variant": "baseline",
+        "repeat": 2,
+        "evidence": "attempts/0018-chat_state_error-baseline-r2/evidence.json",
+        "artifacts": [
+          "attempts/0018-chat_state_error-baseline-r2/turn-01.response.wav",
+          "attempts/0018-chat_state_error-baseline-r2/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0019-chat_state_error-faulty-r1",
+        "scenario_id": "chat_state_error",
+        "variant": "faulty",
+        "repeat": 1,
+        "evidence": "attempts/0019-chat_state_error-faulty-r1/evidence.json",
+        "artifacts": [
+          "attempts/0019-chat_state_error-faulty-r1/turn-01.response.wav",
+          "attempts/0019-chat_state_error-faulty-r1/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0020-chat_state_error-faulty-r2",
+        "scenario_id": "chat_state_error",
+        "variant": "faulty",
+        "repeat": 2,
+        "evidence": "attempts/0020-chat_state_error-faulty-r2/evidence.json",
+        "artifacts": [
+          "attempts/0020-chat_state_error-faulty-r2/turn-01.response.wav",
+          "attempts/0020-chat_state_error-faulty-r2/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0021-chat_timeout-baseline-r1",
+        "scenario_id": "chat_timeout",
+        "variant": "baseline",
+        "repeat": 1,
+        "evidence": "attempts/0021-chat_timeout-baseline-r1/evidence.json",
+        "artifacts": []
+      },
+      {
+        "attempt_id": "0022-chat_timeout-baseline-r2",
+        "scenario_id": "chat_timeout",
+        "variant": "baseline",
+        "repeat": 2,
+        "evidence": "attempts/0022-chat_timeout-baseline-r2/evidence.json",
+        "artifacts": []
+      },
+      {
+        "attempt_id": "0023-chat_timeout-faulty-r1",
+        "scenario_id": "chat_timeout",
+        "variant": "faulty",
+        "repeat": 1,
+        "evidence": "attempts/0023-chat_timeout-faulty-r1/evidence.json",
+        "artifacts": []
+      },
+      {
+        "attempt_id": "0024-chat_timeout-faulty-r2",
+        "scenario_id": "chat_timeout",
+        "variant": "faulty",
+        "repeat": 2,
+        "evidence": "attempts/0024-chat_timeout-faulty-r2/evidence.json",
+        "artifacts": []
+      },
+      {
+        "attempt_id": "0025-audio_booking-baseline-r1",
+        "scenario_id": "audio_booking",
+        "variant": "baseline",
+        "repeat": 1,
+        "evidence": "attempts/0025-audio_booking-baseline-r1/evidence.json",
+        "artifacts": [
+          "attempts/0025-audio_booking-baseline-r1/turn-01.response.wav",
+          "attempts/0025-audio_booking-baseline-r1/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0026-audio_booking-baseline-r2",
+        "scenario_id": "audio_booking",
+        "variant": "baseline",
+        "repeat": 2,
+        "evidence": "attempts/0026-audio_booking-baseline-r2/evidence.json",
+        "artifacts": [
+          "attempts/0026-audio_booking-baseline-r2/turn-01.response.wav",
+          "attempts/0026-audio_booking-baseline-r2/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0027-audio_booking-faulty-r1",
+        "scenario_id": "audio_booking",
+        "variant": "faulty",
+        "repeat": 1,
+        "evidence": "attempts/0027-audio_booking-faulty-r1/evidence.json",
+        "artifacts": [
+          "attempts/0027-audio_booking-faulty-r1/turn-01.response.wav",
+          "attempts/0027-audio_booking-faulty-r1/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0028-audio_booking-faulty-r2",
+        "scenario_id": "audio_booking",
+        "variant": "faulty",
+        "repeat": 2,
+        "evidence": "attempts/0028-audio_booking-faulty-r2/evidence.json",
+        "artifacts": [
+          "attempts/0028-audio_booking-faulty-r2/turn-01.response.wav",
+          "attempts/0028-audio_booking-faulty-r2/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0029-audio_interruption-baseline-r1",
+        "scenario_id": "audio_interruption",
+        "variant": "baseline",
+        "repeat": 1,
+        "evidence": "attempts/0029-audio_interruption-baseline-r1/evidence.json",
+        "artifacts": [
+          "attempts/0029-audio_interruption-baseline-r1/turn-01.response.wav",
+          "attempts/0029-audio_interruption-baseline-r1/turn-03.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0030-audio_interruption-baseline-r2",
+        "scenario_id": "audio_interruption",
+        "variant": "baseline",
+        "repeat": 2,
+        "evidence": "attempts/0030-audio_interruption-baseline-r2/evidence.json",
+        "artifacts": [
+          "attempts/0030-audio_interruption-baseline-r2/turn-01.response.wav",
+          "attempts/0030-audio_interruption-baseline-r2/turn-03.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0031-audio_interruption-faulty-r1",
+        "scenario_id": "audio_interruption",
+        "variant": "faulty",
+        "repeat": 1,
+        "evidence": "attempts/0031-audio_interruption-faulty-r1/evidence.json",
+        "artifacts": [
+          "attempts/0031-audio_interruption-faulty-r1/turn-01.response.wav",
+          "attempts/0031-audio_interruption-faulty-r1/turn-03.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0032-audio_interruption-faulty-r2",
+        "scenario_id": "audio_interruption",
+        "variant": "faulty",
+        "repeat": 2,
+        "evidence": "attempts/0032-audio_interruption-faulty-r2/evidence.json",
+        "artifacts": [
+          "attempts/0032-audio_interruption-faulty-r2/turn-01.response.wav",
+          "attempts/0032-audio_interruption-faulty-r2/turn-03.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0033-chat_address_confirmed-baseline-r1",
+        "scenario_id": "chat_address_confirmed",
+        "variant": "baseline",
+        "repeat": 1,
+        "evidence": "attempts/0033-chat_address_confirmed-baseline-r1/evidence.json",
+        "artifacts": [
+          "attempts/0033-chat_address_confirmed-baseline-r1/turn-01.response.wav",
+          "attempts/0033-chat_address_confirmed-baseline-r1/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0034-chat_address_confirmed-baseline-r2",
+        "scenario_id": "chat_address_confirmed",
+        "variant": "baseline",
+        "repeat": 2,
+        "evidence": "attempts/0034-chat_address_confirmed-baseline-r2/evidence.json",
+        "artifacts": [
+          "attempts/0034-chat_address_confirmed-baseline-r2/turn-01.response.wav",
+          "attempts/0034-chat_address_confirmed-baseline-r2/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0035-chat_address_confirmed-faulty-r1",
+        "scenario_id": "chat_address_confirmed",
+        "variant": "faulty",
+        "repeat": 1,
+        "evidence": "attempts/0035-chat_address_confirmed-faulty-r1/evidence.json",
+        "artifacts": [
+          "attempts/0035-chat_address_confirmed-faulty-r1/turn-01.response.wav",
+          "attempts/0035-chat_address_confirmed-faulty-r1/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0036-chat_address_confirmed-faulty-r2",
+        "scenario_id": "chat_address_confirmed",
+        "variant": "faulty",
+        "repeat": 2,
+        "evidence": "attempts/0036-chat_address_confirmed-faulty-r2/evidence.json",
+        "artifacts": [
+          "attempts/0036-chat_address_confirmed-faulty-r2/turn-01.response.wav",
+          "attempts/0036-chat_address_confirmed-faulty-r2/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0037-audio_address_confirmed-baseline-r1",
+        "scenario_id": "audio_address_confirmed",
+        "variant": "baseline",
+        "repeat": 1,
+        "evidence": "attempts/0037-audio_address_confirmed-baseline-r1/evidence.json",
+        "artifacts": [
+          "attempts/0037-audio_address_confirmed-baseline-r1/turn-01.response.wav",
+          "attempts/0037-audio_address_confirmed-baseline-r1/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0038-audio_address_confirmed-baseline-r2",
+        "scenario_id": "audio_address_confirmed",
+        "variant": "baseline",
+        "repeat": 2,
+        "evidence": "attempts/0038-audio_address_confirmed-baseline-r2/evidence.json",
+        "artifacts": [
+          "attempts/0038-audio_address_confirmed-baseline-r2/turn-01.response.wav",
+          "attempts/0038-audio_address_confirmed-baseline-r2/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0039-audio_address_confirmed-faulty-r1",
+        "scenario_id": "audio_address_confirmed",
+        "variant": "faulty",
+        "repeat": 1,
+        "evidence": "attempts/0039-audio_address_confirmed-faulty-r1/evidence.json",
+        "artifacts": [
+          "attempts/0039-audio_address_confirmed-faulty-r1/turn-01.response.wav",
+          "attempts/0039-audio_address_confirmed-faulty-r1/turn-02.response.wav"
+        ]
+      },
+      {
+        "attempt_id": "0040-audio_address_confirmed-faulty-r2",
+        "scenario_id": "audio_address_confirmed",
+        "variant": "faulty",
+        "repeat": 2,
+        "evidence": "attempts/0040-audio_address_confirmed-faulty-r2/evidence.json",
+        "artifacts": [
+          "attempts/0040-audio_address_confirmed-faulty-r2/turn-01.response.wav",
+          "attempts/0040-audio_address_confirmed-faulty-r2/turn-02.response.wav"
+        ]
+      }
+    ],
+    "suite_wall_clock_ms": 4203.0
+  },
+  "artifacts": {
+    "results": "results.json",
+    "report": "report.md",
+    "comparison": "comparison.json",
+    "comparison_report": "comparison.md"
+  },
+  "replay_duration_ms": 93.0,
+  "timing_note": "replay_duration_ms is how long this offline regrade took. Agent and runner timings in the results are the original run's and were not re-measured."
+}

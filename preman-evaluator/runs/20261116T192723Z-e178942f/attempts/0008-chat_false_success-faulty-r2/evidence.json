@@ -1,0 +1,323 @@
+{
+  "evidence_schema": 1,
+  "attempt_id": "0008-chat_false_success-faulty-r2",
+  "run_id": "20261116T192723Z-e178942f",
+  "scenario_id": "chat_false_success",
+  "variant": "faulty",
+  "repeat": 2,
+  "started_at_utc": "2026-11-16T19:27:23.848Z",
+  "timing_note": "elapsed_ms values are measured by the runner with a monotonic clock; at_ms values inside target events are the target's simulated fixture clock.",
+  "session": {
+    "outcome": "ok",
+    "status": 201,
+    "elapsed_ms": 0.0,
+    "body": {
+      "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+      "run_id": "20261116T192723Z-e178942f",
+      "variant": "faulty",
+      "fixture": "false_success"
+    },
+    "request": {
+      "run_id": "20261116T192723Z-e178942f",
+      "variant": "faulty",
+      "fixture": "false_success"
+    }
+  },
+  "turns": [
+    {
+      "index": 1,
+      "type": "text",
+      "request": {
+        "text": "Book appointment for C1 at 2026-12-01T10:00:00Z"
+      },
+      "deadline_ms": 3000,
+      "outcome": "ok",
+      "status": 200,
+      "elapsed_ms": 16.0,
+      "body": {
+        "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+        "run_id": "20261116T192723Z-e178942f",
+        "turn_id": "turn-1",
+        "response_id": "response-1",
+        "input_mode": "chat",
+        "generated_text": "Please confirm the appointment for C1 at 10:00 UTC on December 1, 2026.",
+        "audio_base64": {
+          "extracted_to": "turn-01.response.wav",
+          "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee",
+          "base64_chars": 99004
+        },
+        "audio_format": "wav",
+        "audio_fixture": "audio/agent_response.wav",
+        "audio_semantics": "prerecorded_fixture_not_tts_may_differ_from_generated_text",
+        "clock_domain": "fixture_clock",
+        "timing_source": "simulated",
+        "events": [
+          {
+            "event_id": "event-0001",
+            "kind": "input_received",
+            "at_ms": 0,
+            "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1",
+            "mode": "chat",
+            "text": "Book appointment for C1 at 2026-12-01T10:00:00Z"
+          },
+          {
+            "event_id": "event-0002",
+            "kind": "model_request",
+            "at_ms": 220,
+            "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1"
+          },
+          {
+            "event_id": "event-0003",
+            "kind": "first_model_token",
+            "at_ms": 480,
+            "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1"
+          },
+          {
+            "event_id": "event-0004",
+            "kind": "generated_text",
+            "at_ms": 500,
+            "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+            "turn_id": "turn-1",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-1",
+            "text": "Please confirm the appointment for C1 at 10:00 UTC on December 1, 2026."
+          }
+        ]
+      },
+      "deadline_exceeded": false,
+      "audio_artifact": {
+        "path": "turn-01.response.wav",
+        "sha256": "fc5de8d43d83fd0e3ad86e6f67f5f31d84d8aae8490445aaf0d0147b9bb334ee",
+        "bytes": 74252,
+        "playable": true,
+        "duration_ms": 2192.4,
+        "sample_rate_hz": 16000,
+        "channels": 1,
+        "sample_width_bits": 16,
+        "frames": 35078
+      }
+    },
+    {
+      "index": 2,
+      "type": "text",
+      "request": {
+        "text": "Yes, confirm"
+      },
+      "deadline_ms": 3000,
+      "outcome": "ok",
+      "status": 200,
+      "elapsed_ms": 0.0,
+      "body": {
+        "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+        "run_id": "20261116T192723Z-e178942f",
+        "turn_id": "turn-2",
+        "response_id": "response-2",
+        "input_mode": "chat",
+        "generated_text": "Your appointment is booked for 10:00 UTC on December 1, 2026.",
+        "audio_base64": {
+          "extracted_to": "turn-02.response.wav",
+          "sha256": "9f1fe7245c07c71e0b8a173be0e8b2a668a2e8bd2a97cea7df7736013e2488a4",
+          "base64_chars": 70528
+        },
+        "audio_format": "wav",
+        "audio_fixture": "audio/agent_booked.wav",
+        "audio_semantics": "prerecorded_fixture_not_tts_may_differ_from_generated_text",
+        "clock_domain": "fixture_clock",
+        "timing_source": "simulated",
+        "events": [
+          {
+            "event_id": "event-0005",
+            "kind": "input_received",
+            "at_ms": 2000,
+            "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+            "turn_id": "turn-2",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-2",
+            "mode": "chat",
+            "text": "Yes, confirm"
+          },
+          {
+            "event_id": "event-0006",
+            "kind": "model_request",
+            "at_ms": 2220,
+            "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+            "turn_id": "turn-2",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-2"
+          },
+          {
+            "event_id": "event-0007",
+            "kind": "first_model_token",
+            "at_ms": 2480,
+            "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+            "turn_id": "turn-2",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-2"
+          },
+          {
+            "event_id": "event-0008",
+            "kind": "generated_text",
+            "at_ms": 2500,
+            "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+            "turn_id": "turn-2",
+            "clock_domain": "fixture_clock",
+            "timing_source": "simulated",
+            "response_id": "response-2",
+            "text": "Your appointment is booked for 10:00 UTC on December 1, 2026."
+          }
+        ]
+      },
+      "deadline_exceeded": false,
+      "audio_artifact": {
+        "path": "turn-02.response.wav",
+        "sha256": "9f1fe7245c07c71e0b8a173be0e8b2a668a2e8bd2a97cea7df7736013e2488a4",
+        "bytes": 52894,
+        "playable": true,
+        "duration_ms": 1524.9,
+        "sample_rate_hz": 16000,
+        "channels": 1,
+        "sample_width_bits": 16,
+        "frames": 24399
+      }
+    }
+  ],
+  "state": {
+    "outcome": "ok",
+    "status": 200,
+    "elapsed_ms": 0.0,
+    "body": {
+      "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+      "run_id": "20261116T192723Z-e178942f",
+      "authoritative": true,
+      "bookings": [],
+      "address": "10 Oak Street",
+      "audit_log": []
+    }
+  },
+  "trace": {
+    "outcome": "ok",
+    "status": 200,
+    "elapsed_ms": 0.0,
+    "body": {
+      "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+      "run_id": "20261116T192723Z-e178942f",
+      "clock_domain": "fixture_clock",
+      "timing_source": "simulated",
+      "events": [
+        {
+          "event_id": "event-0001",
+          "kind": "input_received",
+          "at_ms": 0,
+          "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1",
+          "mode": "chat",
+          "text": "Book appointment for C1 at 2026-12-01T10:00:00Z"
+        },
+        {
+          "event_id": "event-0002",
+          "kind": "model_request",
+          "at_ms": 220,
+          "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1"
+        },
+        {
+          "event_id": "event-0003",
+          "kind": "first_model_token",
+          "at_ms": 480,
+          "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1"
+        },
+        {
+          "event_id": "event-0004",
+          "kind": "generated_text",
+          "at_ms": 500,
+          "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+          "turn_id": "turn-1",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-1",
+          "text": "Please confirm the appointment for C1 at 10:00 UTC on December 1, 2026."
+        },
+        {
+          "event_id": "event-0005",
+          "kind": "input_received",
+          "at_ms": 2000,
+          "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+          "turn_id": "turn-2",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-2",
+          "mode": "chat",
+          "text": "Yes, confirm"
+        },
+        {
+          "event_id": "event-0006",
+          "kind": "model_request",
+          "at_ms": 2220,
+          "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+          "turn_id": "turn-2",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-2"
+        },
+        {
+          "event_id": "event-0007",
+          "kind": "first_model_token",
+          "at_ms": 2480,
+          "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+          "turn_id": "turn-2",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-2"
+        },
+        {
+          "event_id": "event-0008",
+          "kind": "generated_text",
+          "at_ms": 2500,
+          "session_id": "48bc8d7ce1324eb3a616b89c7f25969e",
+          "turn_id": "turn-2",
+          "clock_domain": "fixture_clock",
+          "timing_source": "simulated",
+          "response_id": "response-2",
+          "text": "Your appointment is booked for 10:00 UTC on December 1, 2026."
+        }
+      ]
+    }
+  },
+  "cleanup": {
+    "outcome": "ok",
+    "status": 200,
+    "elapsed_ms": 0.0,
+    "body": {
+      "deleted": true,
+      "session_id": "48bc8d7ce1324eb3a616b89c7f25969e"
+    }
+  },
+  "harness_errors": [],
+  "runner_duration_ms": 16.0
+}

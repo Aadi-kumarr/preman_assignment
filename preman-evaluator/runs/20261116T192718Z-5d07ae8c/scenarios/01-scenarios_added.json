@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "scenarios": [
+    {
+      "id": "chat_address_confirmed",
+      "fixture": "address",
+      "modality": "chat",
+      "turns": [
+        {
+          "type": "text",
+          "text": "Change it to 14 Pine Street. Ask me before saving."
+        },
+        {
+          "type": "text",
+          "text": "Yes, confirm"
+        }
+      ],
+      "expect": {
+        "address": "14 Pine Street",
+        "no_write_without_confirmation": true
+      },
+      "turn_timeout_ms": 3000
+    },
+    {
+      "id": "audio_address_confirmed",
+      "fixture": "address",
+      "modality": "audio",
+      "turns": [
+        {
+          "type": "audio",
+          "path": "fixtures/audio/address_request.wav"
+        },
+        {
+          "type": "audio",
+          "path": "fixtures/audio/confirm.wav"
+        }
+      ],
+      "expect": {
+        "address": "14 Pine Street",
+        "no_write_without_confirmation": true,
+        "max_first_audio_playback_ms": 1000
+      },
+      "turn_timeout_ms": 3000
+    }
+  ]
+}

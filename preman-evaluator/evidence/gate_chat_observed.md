@@ -1,4 +1,4 @@
-> Note: this file was generated before the submission commit. The run it comes from has a manifest that records the evaluator as `uncommitted`.
+> Note: this file was generated during development, before the submission commit. The run and replay it names are not included in this repository; the run's manifest recorded the evaluator as `uncommitted`. The included runs are listed in the README.
 
 # Verification gate: observed chat behaviour
 

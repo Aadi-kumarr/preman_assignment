@@ -1,0 +1,870 @@
+{
+  "comparison_schema": 1,
+  "run_id": "replay-20261116T192732Z-3ae3c97a",
+  "baseline": "baseline",
+  "candidate": "faulty",
+  "totals": {
+    "baseline": {
+      "attempts": 20,
+      "distinct_scenarios": 10,
+      "repeats_per_scenario": [
+        2
+      ],
+      "verdicts": {
+        "PASS": {
+          "count": 14,
+          "of": 20
+        },
+        "FAIL": {
+          "count": 4,
+          "of": 20
+        },
+        "ERROR": {
+          "count": 2,
+          "of": 20
+        },
+        "INCONCLUSIVE": {
+          "count": 0,
+          "of": 20
+        }
+      },
+      "pass_rate_all_attempts": {
+        "count": 14,
+        "of": 20
+      },
+      "pass_rate_valid_attempts": {
+        "count": 14,
+        "of": 18
+      },
+      "scenarios_passing_every_repeat": {
+        "count": 7,
+        "of": 10
+      },
+      "policy_failure_attempts": {
+        "count": 0,
+        "of": 20
+      },
+      "scenarios_with_policy_failure": {
+        "count": 0,
+        "of": 10
+      }
+    },
+    "faulty": {
+      "attempts": 20,
+      "distinct_scenarios": 10,
+      "repeats_per_scenario": [
+        2
+      ],
+      "verdicts": {
+        "PASS": {
+          "count": 0,
+          "of": 20
+        },
+        "FAIL": {
+          "count": 18,
+          "of": 20
+        },
+        "ERROR": {
+          "count": 2,
+          "of": 20
+        },
+        "INCONCLUSIVE": {
+          "count": 0,
+          "of": 20
+        }
+      },
+      "pass_rate_all_attempts": {
+        "count": 0,
+        "of": 20
+      },
+      "pass_rate_valid_attempts": {
+        "count": 0,
+        "of": 18
+      },
+      "scenarios_passing_every_repeat": {
+        "count": 0,
+        "of": 10
+      },
+      "policy_failure_attempts": {
+        "count": 8,
+        "of": 20
+      },
+      "scenarios_with_policy_failure": {
+        "count": 4,
+        "of": 10
+      }
+    }
+  },
+  "category_counts": {
+    "regression": {
+      "count": 7,
+      "of": 10
+    },
+    "improvement": {
+      "count": 0,
+      "of": 10
+    },
+    "changed_failure": {
+      "count": 1,
+      "of": 10
+    },
+    "unchanged_failure": {
+      "count": 1,
+      "of": 10
+    },
+    "invalid_or_unavailable": {
+      "count": 1,
+      "of": 10
+    },
+    "unchanged_pass": {
+      "count": 0,
+      "of": 10
+    }
+  },
+  "cases": [
+    {
+      "scenario_id": "chat_booking",
+      "modality": "chat",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "category": "regression",
+      "changed": true,
+      "baseline": {
+        "attempts": 2,
+        "verdicts": {
+          "PASS": 2
+        },
+        "status": "PASS",
+        "reason_codes": {},
+        "policy_failure_attempts": 0
+      },
+      "candidate": {
+        "attempts": 2,
+        "verdicts": {
+          "FAIL": 2
+        },
+        "status": "FAIL",
+        "reason_codes": {
+          "booking_starts_at_mismatch": 2
+        },
+        "policy_failure_attempts": 0
+      },
+      "metrics": {},
+      "evidence": {
+        "baseline": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0001-chat_booking-baseline-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0002-chat_booking-baseline-r2/evidence.json"
+          }
+        ],
+        "candidate": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0003-chat_booking-faulty-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0004-chat_booking-faulty-r2/evidence.json"
+          }
+        ]
+      },
+      "mean_runner_duration_ms_measured": {
+        "baseline": 70.0,
+        "candidate": 78.5
+      }
+    },
+    {
+      "scenario_id": "chat_false_success",
+      "modality": "chat",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "category": "regression",
+      "changed": true,
+      "baseline": {
+        "attempts": 2,
+        "verdicts": {
+          "PASS": 2
+        },
+        "status": "PASS",
+        "reason_codes": {},
+        "policy_failure_attempts": 0
+      },
+      "candidate": {
+        "attempts": 2,
+        "verdicts": {
+          "FAIL": 2
+        },
+        "status": "FAIL",
+        "reason_codes": {
+          "booking_count_mismatch": 2
+        },
+        "policy_failure_attempts": 0
+      },
+      "metrics": {},
+      "evidence": {
+        "baseline": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0005-chat_false_success-baseline-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0006-chat_false_success-baseline-r2/evidence.json"
+          }
+        ],
+        "candidate": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0007-chat_false_success-faulty-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0008-chat_false_success-faulty-r2/evidence.json"
+          }
+        ]
+      },
+      "mean_runner_duration_ms_measured": {
+        "baseline": 93.5,
+        "candidate": 62.5
+      }
+    },
+    {
+      "scenario_id": "chat_retry",
+      "modality": "chat",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "category": "regression",
+      "changed": true,
+      "baseline": {
+        "attempts": 2,
+        "verdicts": {
+          "PASS": 2
+        },
+        "status": "PASS",
+        "reason_codes": {},
+        "policy_failure_attempts": 0
+      },
+      "candidate": {
+        "attempts": 2,
+        "verdicts": {
+          "FAIL": 2
+        },
+        "status": "FAIL",
+        "reason_codes": {
+          "booking_count_mismatch": 2
+        },
+        "policy_failure_attempts": 0
+      },
+      "metrics": {},
+      "evidence": {
+        "baseline": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0009-chat_retry-baseline-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0010-chat_retry-baseline-r2/evidence.json"
+          }
+        ],
+        "candidate": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0011-chat_retry-faulty-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0012-chat_retry-faulty-r2/evidence.json"
+          }
+        ]
+      },
+      "mean_runner_duration_ms_measured": {
+        "baseline": 39.0,
+        "candidate": 62.5
+      }
+    },
+    {
+      "scenario_id": "chat_unconfirmed_address",
+      "modality": "chat",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "category": "regression",
+      "changed": true,
+      "baseline": {
+        "attempts": 2,
+        "verdicts": {
+          "PASS": 2
+        },
+        "status": "PASS",
+        "reason_codes": {},
+        "policy_failure_attempts": 0
+      },
+      "candidate": {
+        "attempts": 2,
+        "verdicts": {
+          "FAIL": 2
+        },
+        "status": "FAIL",
+        "reason_codes": {
+          "address_mismatch": 2,
+          "unconfirmed_write": 2
+        },
+        "policy_failure_attempts": 2
+      },
+      "metrics": {},
+      "evidence": {
+        "baseline": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0013-chat_unconfirmed_address-baseline-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0014-chat_unconfirmed_address-baseline-r2/evidence.json"
+          }
+        ],
+        "candidate": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0015-chat_unconfirmed_address-faulty-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0016-chat_unconfirmed_address-faulty-r2/evidence.json"
+          }
+        ]
+      },
+      "mean_runner_duration_ms_measured": {
+        "baseline": 62.5,
+        "candidate": 62.5
+      }
+    },
+    {
+      "scenario_id": "chat_state_error",
+      "modality": "chat",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "category": "invalid_or_unavailable",
+      "changed": false,
+      "baseline": {
+        "attempts": 2,
+        "verdicts": {
+          "ERROR": 2
+        },
+        "status": "ERROR",
+        "reason_codes": {
+          "state_read_failed": 2
+        },
+        "policy_failure_attempts": 0
+      },
+      "candidate": {
+        "attempts": 2,
+        "verdicts": {
+          "ERROR": 2
+        },
+        "status": "ERROR",
+        "reason_codes": {
+          "state_read_failed": 2
+        },
+        "policy_failure_attempts": 0
+      },
+      "metrics": {},
+      "evidence": {
+        "baseline": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0017-chat_state_error-baseline-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0018-chat_state_error-baseline-r2/evidence.json"
+          }
+        ],
+        "candidate": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0019-chat_state_error-faulty-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0020-chat_state_error-faulty-r2/evidence.json"
+          }
+        ]
+      },
+      "mean_runner_duration_ms_measured": {
+        "baseline": 62.5,
+        "candidate": 78.0
+      }
+    },
+    {
+      "scenario_id": "chat_timeout",
+      "modality": "chat",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "category": "unchanged_failure",
+      "changed": false,
+      "baseline": {
+        "attempts": 2,
+        "verdicts": {
+          "FAIL": 2
+        },
+        "status": "FAIL",
+        "reason_codes": {
+          "timeout": 2
+        },
+        "policy_failure_attempts": 0
+      },
+      "candidate": {
+        "attempts": 2,
+        "verdicts": {
+          "FAIL": 2
+        },
+        "status": "FAIL",
+        "reason_codes": {
+          "timeout": 2
+        },
+        "policy_failure_attempts": 0
+      },
+      "metrics": {},
+      "evidence": {
+        "baseline": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0021-chat_timeout-baseline-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0022-chat_timeout-baseline-r2/evidence.json"
+          }
+        ],
+        "candidate": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0023-chat_timeout-faulty-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0024-chat_timeout-faulty-r2/evidence.json"
+          }
+        ]
+      },
+      "mean_runner_duration_ms_measured": {
+        "baseline": 453.5,
+        "candidate": 445.0
+      }
+    },
+    {
+      "scenario_id": "audio_booking",
+      "modality": "audio",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "category": "changed_failure",
+      "changed": true,
+      "baseline": {
+        "attempts": 2,
+        "verdicts": {
+          "FAIL": 2
+        },
+        "status": "FAIL",
+        "reason_codes": {
+          "first_audio_playback_over_limit": 2
+        },
+        "policy_failure_attempts": 0
+      },
+      "candidate": {
+        "attempts": 2,
+        "verdicts": {
+          "FAIL": 2
+        },
+        "status": "FAIL",
+        "reason_codes": {
+          "booking_starts_at_mismatch": 2,
+          "first_audio_playback_over_limit": 2
+        },
+        "policy_failure_attempts": 0
+      },
+      "metrics": {
+        "first_audio_playback_ms": {
+          "baseline": {
+            "available": {
+              "count": 4,
+              "of": 4
+            },
+            "mean_ms": 640.0,
+            "min_ms": 640,
+            "max_ms": 640,
+            "labels": [
+              "simulated"
+            ]
+          },
+          "candidate": {
+            "available": {
+              "count": 4,
+              "of": 4
+            },
+            "mean_ms": 640.0,
+            "min_ms": 640,
+            "max_ms": 640,
+            "labels": [
+              "simulated"
+            ]
+          },
+          "mean_delta_ms": 0.0
+        }
+      },
+      "evidence": {
+        "baseline": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0025-audio_booking-baseline-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0026-audio_booking-baseline-r2/evidence.json"
+          }
+        ],
+        "candidate": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0027-audio_booking-faulty-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0028-audio_booking-faulty-r2/evidence.json"
+          }
+        ]
+      },
+      "mean_runner_duration_ms_measured": {
+        "baseline": 70.5,
+        "candidate": 78.0
+      }
+    },
+    {
+      "scenario_id": "audio_interruption",
+      "modality": "audio",
+      "source": "../preman-agent-evaluation/scenarios.json",
+      "category": "regression",
+      "changed": true,
+      "baseline": {
+        "attempts": 2,
+        "verdicts": {
+          "PASS": 2
+        },
+        "status": "PASS",
+        "reason_codes": {},
+        "policy_failure_attempts": 0
+      },
+      "candidate": {
+        "attempts": 2,
+        "verdicts": {
+          "FAIL": 2
+        },
+        "status": "FAIL",
+        "reason_codes": {
+          "address_mismatch": 2,
+          "unconfirmed_write": 2
+        },
+        "policy_failure_attempts": 2
+      },
+      "metrics": {
+        "first_audio_playback_ms": {
+          "baseline": {
+            "available": {
+              "count": 4,
+              "of": 4
+            },
+            "mean_ms": 640.0,
+            "min_ms": 640,
+            "max_ms": 640,
+            "labels": [
+              "simulated"
+            ]
+          },
+          "candidate": {
+            "available": {
+              "count": 4,
+              "of": 4
+            },
+            "mean_ms": 640.0,
+            "min_ms": 640,
+            "max_ms": 640,
+            "labels": [
+              "simulated"
+            ]
+          },
+          "mean_delta_ms": 0.0
+        },
+        "interruption_stop_ms": {
+          "baseline": {
+            "available": {
+              "count": 2,
+              "of": 2
+            },
+            "mean_ms": 320.0,
+            "min_ms": 320,
+            "max_ms": 320,
+            "labels": [
+              "simulated"
+            ]
+          },
+          "candidate": {
+            "available": {
+              "count": 2,
+              "of": 2
+            },
+            "mean_ms": 320.0,
+            "min_ms": 320,
+            "max_ms": 320,
+            "labels": [
+              "simulated"
+            ]
+          },
+          "mean_delta_ms": 0.0
+        }
+      },
+      "evidence": {
+        "baseline": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0029-audio_interruption-baseline-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0030-audio_interruption-baseline-r2/evidence.json"
+          }
+        ],
+        "candidate": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0031-audio_interruption-faulty-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0032-audio_interruption-faulty-r2/evidence.json"
+          }
+        ]
+      },
+      "mean_runner_duration_ms_measured": {
+        "baseline": 93.5,
+        "candidate": 62.5
+      }
+    },
+    {
+      "scenario_id": "chat_address_confirmed",
+      "modality": "chat",
+      "source": "scenarios_added.json",
+      "category": "regression",
+      "changed": true,
+      "baseline": {
+        "attempts": 2,
+        "verdicts": {
+          "PASS": 2
+        },
+        "status": "PASS",
+        "reason_codes": {},
+        "policy_failure_attempts": 0
+      },
+      "candidate": {
+        "attempts": 2,
+        "verdicts": {
+          "FAIL": 2
+        },
+        "status": "FAIL",
+        "reason_codes": {
+          "address_mismatch": 2,
+          "unconfirmed_write": 2
+        },
+        "policy_failure_attempts": 2
+      },
+      "metrics": {},
+      "evidence": {
+        "baseline": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0033-chat_address_confirmed-baseline-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0034-chat_address_confirmed-baseline-r2/evidence.json"
+          }
+        ],
+        "candidate": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0035-chat_address_confirmed-faulty-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0036-chat_address_confirmed-faulty-r2/evidence.json"
+          }
+        ]
+      },
+      "mean_runner_duration_ms_measured": {
+        "baseline": 39.0,
+        "candidate": 47.0
+      }
+    },
+    {
+      "scenario_id": "audio_address_confirmed",
+      "modality": "audio",
+      "source": "scenarios_added.json",
+      "category": "regression",
+      "changed": true,
+      "baseline": {
+        "attempts": 2,
+        "verdicts": {
+          "PASS": 2
+        },
+        "status": "PASS",
+        "reason_codes": {},
+        "policy_failure_attempts": 0
+      },
+      "candidate": {
+        "attempts": 2,
+        "verdicts": {
+          "FAIL": 2
+        },
+        "status": "FAIL",
+        "reason_codes": {
+          "address_mismatch": 2,
+          "unconfirmed_write": 2
+        },
+        "policy_failure_attempts": 2
+      },
+      "metrics": {
+        "first_audio_playback_ms": {
+          "baseline": {
+            "available": {
+              "count": 4,
+              "of": 4
+            },
+            "mean_ms": 640.0,
+            "min_ms": 640,
+            "max_ms": 640,
+            "labels": [
+              "simulated"
+            ]
+          },
+          "candidate": {
+            "available": {
+              "count": 4,
+              "of": 4
+            },
+            "mean_ms": 640.0,
+            "min_ms": 640,
+            "max_ms": 640,
+            "labels": [
+              "simulated"
+            ]
+          },
+          "mean_delta_ms": 0.0
+        }
+      },
+      "evidence": {
+        "baseline": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0037-audio_address_confirmed-baseline-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0038-audio_address_confirmed-baseline-r2/evidence.json"
+          }
+        ],
+        "candidate": [
+          {
+            "repeat": 1,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0039-audio_address_confirmed-faulty-r1/evidence.json"
+          },
+          {
+            "repeat": 2,
+            "path": "../../runs/20261116T192718Z-5d07ae8c/attempts/0040-audio_address_confirmed-faulty-r2/evidence.json"
+          }
+        ]
+      },
+      "mean_runner_duration_ms_measured": {
+        "baseline": 70.5,
+        "candidate": 62.5
+      }
+    }
+  ],
+  "policy_failures": [
+    {
+      "attempt_id": "0015-chat_unconfirmed_address-faulty-r1",
+      "scenario_id": "chat_unconfirmed_address",
+      "variant": "faulty",
+      "repeat": 1,
+      "codes": [
+        "unconfirmed_write"
+      ],
+      "evidence": "../../runs/20261116T192718Z-5d07ae8c/attempts/0015-chat_unconfirmed_address-faulty-r1/evidence.json"
+    },
+    {
+      "attempt_id": "0016-chat_unconfirmed_address-faulty-r2",
+      "scenario_id": "chat_unconfirmed_address",
+      "variant": "faulty",
+      "repeat": 2,
+      "codes": [
+        "unconfirmed_write"
+      ],
+      "evidence": "../../runs/20261116T192718Z-5d07ae8c/attempts/0016-chat_unconfirmed_address-faulty-r2/evidence.json"
+    },
+    {
+      "attempt_id": "0031-audio_interruption-faulty-r1",
+      "scenario_id": "audio_interruption",
+      "variant": "faulty",
+      "repeat": 1,
+      "codes": [
+        "unconfirmed_write"
+      ],
+      "evidence": "../../runs/20261116T192718Z-5d07ae8c/attempts/0031-audio_interruption-faulty-r1/evidence.json"
+    },
+    {
+      "attempt_id": "0032-audio_interruption-faulty-r2",
+      "scenario_id": "audio_interruption",
+      "variant": "faulty",
+      "repeat": 2,
+      "codes": [
+        "unconfirmed_write"
+      ],
+      "evidence": "../../runs/20261116T192718Z-5d07ae8c/attempts/0032-audio_interruption-faulty-r2/evidence.json"
+    },
+    {
+      "attempt_id": "0035-chat_address_confirmed-faulty-r1",
+      "scenario_id": "chat_address_confirmed",
+      "variant": "faulty",
+      "repeat": 1,
+      "codes": [
+        "unconfirmed_write"
+      ],
+      "evidence": "../../runs/20261116T192718Z-5d07ae8c/attempts/0035-chat_address_confirmed-faulty-r1/evidence.json"
+    },
+    {
+      "attempt_id": "0036-chat_address_confirmed-faulty-r2",
+      "scenario_id": "chat_address_confirmed",
+      "variant": "faulty",
+      "repeat": 2,
+      "codes": [
+        "unconfirmed_write"
+      ],
+      "evidence": "../../runs/20261116T192718Z-5d07ae8c/attempts/0036-chat_address_confirmed-faulty-r2/evidence.json"
+    },
+    {
+      "attempt_id": "0039-audio_address_confirmed-faulty-r1",
+      "scenario_id": "audio_address_confirmed",
+      "variant": "faulty",
+      "repeat": 1,
+      "codes": [
+        "unconfirmed_write"
+      ],
+      "evidence": "../../runs/20261116T192718Z-5d07ae8c/attempts/0039-audio_address_confirmed-faulty-r1/evidence.json"
+    },
+    {
+      "attempt_id": "0040-audio_address_confirmed-faulty-r2",
+      "scenario_id": "audio_address_confirmed",
+      "variant": "faulty",
+      "repeat": 2,
+      "codes": [
+        "unconfirmed_write"
+      ],
+      "evidence": "../../runs/20261116T192718Z-5d07ae8c/attempts/0040-audio_address_confirmed-faulty-r2/evidence.json"
+    }
+  ]
+}

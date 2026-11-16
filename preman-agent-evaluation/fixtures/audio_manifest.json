@@ -1,0 +1,21 @@
+{
+  "format": "PCM WAV mono 16000 Hz 16 bit",
+  "files": [
+    {
+      "path": "audio/booking_request.wav",
+      "text": "Book appointment for C1 at 2026-12-01T10:00:00Z"
+    },
+    {
+      "path": "audio/confirm.wav",
+      "text": "Yes, confirm"
+    },
+    {
+      "path": "audio/address_request.wav",
+      "text": "Change it to 14 Pine Street. Ask me before saving."
+    },
+    {
+      "path": "audio/correction.wav",
+      "text": "No, fourteen. Don't save yet."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "base_url": "http://127.0.0.1:8765",
+  "starter_dir": "../preman-agent-evaluation",
+  "expected_starter_sha256": "8b94a55636e92a395112fdc1ef366b1f0fb86fcd85158100dadcf7e9a9f17525",
+  "scenario_files": [
+    "../preman-agent-evaluation/scenarios.json",
+    "scenarios_added.json"
+  ],
+  "audio_manifest": "fixtures/audio_manifest.json",
+  "variants": ["baseline", "faulty"],
+  "repeats": 1,
+  "concurrency": 1,
+  "harness_timeout_ms": 5000,
+  "runs_dir": "runs",
+  "confirmation_phrases": ["yes", "confirm", "yes confirm", "yes, confirm"]
+}
